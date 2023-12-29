@@ -1,0 +1,28 @@
+.tab-content-set{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* .tab-content-set ul li a {
+    color: var(--black);
+}
+.darkmode .tab-content-set ul li a {
+    color: var(--blanco);
+} */
+
+
+.darkmode .tab-content-set .active{
+    color: var(--base);
+    border-bottom: 2px solid var(--base);
+    border-bottom-width: 80%;
+    text-align: center;
+}
+.tab-content-set .active{
+    color: var(--base);
+    border-bottom: 2px solid var(--base);
+    border-bottom-width: 80%;
+    text-align: center;
+}
