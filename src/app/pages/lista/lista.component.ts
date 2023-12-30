@@ -26,6 +26,7 @@ export class ListaComponent implements OnInit {
   money_of_appointments:any;
   num_appointment_pendings:any;
   patient_selected:any;
+  appointment_checkeds:any;
   appointment_pendings:any;
 
   constructor(
@@ -67,6 +68,7 @@ export class ListaComponent implements OnInit {
       this.patient_selected= resp.patient;
       this.appointments= resp.appointments;
       this.appointment_pendings= resp.appointment_pendings.data;
+      this.appointment_checkeds= resp.appointment_checkeds.data;
       // this.num_appointment= resp.num_appointment;
       // this.money_of_appointments= resp.money_of_appointments;
       // this.num_appointment_pendings= resp.num_appointment_pendings;

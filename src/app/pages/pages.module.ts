@@ -13,6 +13,7 @@ import { PagesRoutingModule } from './pages.routing';
 import { PagesComponent } from './pages.component';
 import { AddAppointmentsComponent } from './agendar-cita/add-appointments/add-appointments.component';
 import { DetallecitaComponent } from './detallecita/detallecita.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DetallecitaComponent } from './detallecita/detallecita.component';
     PagesComponent,
     AddAppointmentsComponent,
     DetallecitaComponent,
+    DoctorProfileComponent
   ],
   exports: [
     HomeComponent,
@@ -32,7 +34,8 @@ import { DetallecitaComponent } from './detallecita/detallecita.component';
     PerfilComponent,
     PagesComponent,
     AddAppointmentsComponent,
-    DetallecitaComponent
+    DetallecitaComponent,
+    DoctorProfileComponent
   ],
   imports: [
     CommonModule,

@@ -22,6 +22,11 @@ export class AppointmentService {
     let URL = url_servicios+'/appointment/config';
     return this.http.get(URL, {headers:headers});
   }
+  listAppointementAtendidas(){
+    let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token})
+    let URL = url_servicios+'/appointment/atendidas';
+    return this.http.get(URL, {headers:headers});
+  }
 
   lisFiter(data:any){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});

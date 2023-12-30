@@ -6,6 +6,7 @@ import { ListaComponent } from './lista/lista.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AddAppointmentsComponent } from './agendar-cita/add-appointments/add-appointments.component';
 import { DetallecitaComponent } from './detallecita/detallecita.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 //pages
 
@@ -22,6 +23,9 @@ const childRoutes: Routes = [
     },
     {
       path:'agendar-cita', component:AddAppointmentsComponent
+    },
+    {
+      path:'perfil-doctor/:id', component:DoctorProfileComponent
     },
     {
       path:'agendar-cita/:id', component:AgendarCitaComponent

@@ -1,6 +1,7 @@
 .perfil-home{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 60px auto 1rem;
+    /* grid-template-columns: repeat(1, 1fr); */
     grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -24,7 +25,8 @@
 }
 .perfil-home-acc {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: 120px auto 1rem;
     grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;

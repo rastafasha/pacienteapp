@@ -99,3 +99,18 @@
 }
 
 
+.darkmode .tab-content-set .active{
+    color: var(--base);
+    border-bottom: 2px solid var(--base);
+    border-bottom-width: 80%;
+    text-align: center;
+}
+
+.darkmode .tab-content-set{
+    position: fixed;
+    color: var(--blanco);
+    background-color: var(--fondo-negro);
+    z-index: 9;
+    width: 100vw;
+}
+

@@ -56,6 +56,7 @@ getInfoCita(){
     this.appoitmentService.showCitamedica(this.appointment_id).subscribe((resp:any)=>{
       // console.log(resp);
       this.appointment_attention = resp.appointment_attention;
+      this.appointment = resp.appointments;
       this.recetas = resp.appointment_attention.receta_medica;
       
     })
