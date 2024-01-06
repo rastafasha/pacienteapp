@@ -10,8 +10,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./signosvitales.component.css']
 })
 export class SignosvitalesComponent implements OnInit {
-  loading:boolean;
-  obs$ = of(1).pipe(delay(500));
+  // public cargando: boolean = true;
+
   user:any;
   usuario:any;
   patient_id:number;

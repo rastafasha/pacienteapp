@@ -191,3 +191,25 @@ textarea {
     width: 100%;
     display: flex;
 }
+
+@media screen and (orientation: landscape) and (max-width: 990px) {
+    .aviso-horizontal {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        background-color: #f3f3f3;
+        position: absolute;
+        z-index: 9999999999999;
+        left: 0;
+        top: 0;
+      background-image: url('../images/fondo-horizontal.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+@media screen and (orientation: portrait) {
+    .aviso-horizontal {
+        display: none;
+    }
+  }

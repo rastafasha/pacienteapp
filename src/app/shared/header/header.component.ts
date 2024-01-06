@@ -31,11 +31,11 @@ export class HeaderComponent implements OnInit {
 
   getInfoUser(){
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
-      console.log('todo',resp);
+      // console.log('todo',resp);
       this.patient = resp.patient.data[0];
-      console.log('patient', this.patient);
+      // console.log('patient', this.patient);
       this.user = resp.user.data[0];
-      console.log('user', this.user);
+      // console.log('user', this.user);
       // console.log('patient', this.patient);
       // this.usuario = resp;
     })
@@ -55,26 +55,6 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.authService.logout();
   }
-  // darkMode(darkmode:string){
-  //   var element = document.body;
-  //   element.classList.toggle("darkmode");
-  //   localStorage.setItem('darkmode', darkmode);
-
-  //   // if ("darkmode") {
-  //   //   // console.log('✅ class exists on page, removido');
-  //   //   localStorage.removeItem('darkmode');
-  //   // } else {
-  //   //   // console.log('⛔️ class does NOT exist on page, agregado');
-  //   // }
-      
-  // }
-  // darkModeNone(){
-  //   var element = document.body;
-  //   element.classList.toggle("darkmode");
-  //   localStorage.removeItem('darkmode');
-
-      
-  // }
 
   darkMode(dark:string){
     var element = document.body;

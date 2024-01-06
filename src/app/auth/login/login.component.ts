@@ -5,6 +5,9 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
+import { Platform } from '@angular/cdk/platform';
+import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
+import { filter, map } from 'rxjs';
 declare const gapi: any;
 
 
@@ -50,16 +53,20 @@ export class LoginComponent implements OnInit {
 
   errors:any = null;
 
+  
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
     private usuarioService: UserService,
+    
   ) {
-
+   
   }
   username: FormControl<any>;
 ngOnInit(){
+  
   this.loginForm = this.fb.group({
     email: [ localStorage.getItem('email') || '', [Validators.required, Validators.email] ],
     password: ['', Validators.required],

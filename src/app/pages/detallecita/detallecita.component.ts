@@ -10,9 +10,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./detallecita.component.css']
 })
 export class DetallecitaComponent implements OnInit {
-  loading:boolean;
-  obs$ = of(1).pipe(delay(500));
   
+  public cargando: boolean = true;
+
   appointment_id:any;
   patient:any;
   user:any;
@@ -26,6 +26,7 @@ export class DetallecitaComponent implements OnInit {
   appointment_pendings:any;
   appointment_attention:any;
   recetas:any;
+  description:any;
 
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -34,6 +35,7 @@ export class DetallecitaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     this.activatedRoute.params.subscribe((resp:any)=>{
       // console.log(resp);
       this.appointment_id = resp.id;
@@ -45,8 +47,10 @@ export class DetallecitaComponent implements OnInit {
 
   
 getInfoCita(){
+  this.cargando = true;
     this.appoitmentService.showAppointment(this.appointment_id).subscribe((resp:any)=>{
-      // console.log(resp);
+      this.cargando = false;
+      console.log(resp);
       this.appointment = resp.appointment;
       
     })
@@ -54,10 +58,11 @@ getInfoCita(){
 
   getInfoReceta(){
     this.appoitmentService.showCitamedica(this.appointment_id).subscribe((resp:any)=>{
-      // console.log(resp);
+      console.log(resp);
       this.appointment_attention = resp.appointment_attention;
       this.appointment = resp.appointments;
       this.recetas = resp.appointment_attention.receta_medica;
+      this.description = resp.appointment_attention.description;
       
     })
   }

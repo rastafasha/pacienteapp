@@ -114,3 +114,7 @@
     width: 100vw;
 }
 
+.darkmode b {
+    color: var(--blanco);
+}
+

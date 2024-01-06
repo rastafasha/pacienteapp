@@ -18,6 +18,10 @@
 }
 
 @media(max-width:768px) {
+    .foot{
+        display: flex;
+    justify-content: center;
+    }
     .navbarM {
         display: flex;
         justify-content: space-between;
@@ -25,11 +29,10 @@
         background-color: transparent;
         border-top: 1px solid var(--azuloscuro);
         position: fixed;
-        width: 96%;
+        width: 91%;
         height: 74px;
         bottom: 0px;
         z-index: 9999;
-        left: 8px;
     }
     .navbarM a {
         float: left;

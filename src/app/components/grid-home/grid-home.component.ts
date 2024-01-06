@@ -13,9 +13,8 @@ export class GridHomeComponent implements OnInit {
 
   // @Input() childMessage:any=[]; //recibe la data
   // @Output() userV: EventEmitter<any>  = new EventEmitter();// envia la data
-  loading:boolean;
+  public cargando: boolean = true;
 
-  obs$ = of(1).pipe(delay(500));
   
   user:any;
   usuario:any;
@@ -50,6 +49,7 @@ export class GridHomeComponent implements OnInit {
 
   getInfoUser(){
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
+      
       // console.log(resp);
       this.patient = resp.patient.data[0];
       // console.log('patient', this.patient);
@@ -70,10 +70,6 @@ export class GridHomeComponent implements OnInit {
       this.appointments= resp.appointments;
       this.appointment_pendings= resp.appointment_pendings.data;
       this.appointment_attention= resp.appointments[0].appointment_attention;
-
-      // this.num_appointment_pendings= resp.num_appointment_pendings;
-      // this.num_appointment= resp.num_appointment;
-      // this.money_of_appointments= resp.money_of_appointments;
 
       if(resp.appointments[0].appointment_attention){
         this.recetas= resp.appointments[0].appointment_attention.receta_medica;

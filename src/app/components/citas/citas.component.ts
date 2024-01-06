@@ -12,8 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CitasComponent implements OnInit {
 
-  loading:boolean;
-  obs$ = of(1).pipe(delay(500));
+  // public cargando: boolean = true;
   
   user:any;
   usuario:any;
@@ -47,6 +46,7 @@ export class CitasComponent implements OnInit {
   
 
   getInfoUser(){
+    
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
       // console.log(resp);
       this.patient = resp.patient.data;

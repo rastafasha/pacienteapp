@@ -1,8 +1,17 @@
-<div *ngIf="!appointment">
-    <h2 class="notiene">Su Cita Aun no ha sido atendida.</h2>
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <div class="alert-heading">Cargando</div>
+            <i class="fa fa-spin fa-refresh fa-1x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+    </div>
 </div>
-<div *ngIf="obs$ | async as obs; else loading" >
-    <ng-template #loading>Loading...</ng-template>
+
+<div *ngIf="!cargando">
+<div *ngIf="!appointment">
+    <h2 class="notiene">Su Cita aún no ha sido atendida.</h2>
+</div>
     <section class="container animated fadeInUp " style=" padding-top: 30px; padding-bottom: 50px;" *ngIf="appointment">
         
         <div class="perfil" >

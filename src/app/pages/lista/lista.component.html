@@ -17,38 +17,36 @@
         </ul>
     </div>
     <ng-container *ngIf="option_selected == 1">
-        <section class="container animated fadeInUp " style="margin-bottom: 30px; padding-top: 40px; " *ngIf="patient" >
+        <section class="container " style="margin-bottom: 30px; padding-top: 40px; " *ngIf="patient" >
         
             <div class="" >
                 <ng-container *ngFor="let appoitmentp of appointment_pendings">
                 <div class="locales_categorias" style="width: 94vw;" >
                         
                         <div class="local_categoria_item">
-                            <a [routerLink]="['/app/detalle-cita', appoitmentp.id]">
-                                <div class="logo_local">
-                                    <img [src]="appoitmentp.doctor.avatar" alt="">
-                                </div>
-                                <div class="contenido">
-                                    <div class="info_local">
-                                        <h3>{{appoitmentp.doctor.full_name}}</h3>
-                                        <div class="infcita">
-                                            <p class="esp">{{appoitmentp.speciality.name}}</p>
-                                            <p class="fech">{{appoitmentp.date_appointment_format}}</p>
-                                            <p class="monto">Costo: ${{appoitmentp.amount}}</p>
-                                            <p class="pagado">
-                                                <span *ngIf="appoitmentp.status_pay === 1">Pagado</span>
-                                                <span *ngIf="appoitmentp.status_pay === 2">Deuda</span>
-                                            </p>
-                                            <!-- <p class="tiemp">{{appoitmentp.format_hour_start}} a {{appoitmentp.format_hour_end}}</p> -->
-                                            <p class="tiemp">{{appoitmentp.segment_hour.format_segment.hour_start}} a {{appoitmentp.segment_hour.format_segment.hour_end}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="calificacion">
-                                        <span *ngIf="appoitmentp.status === 1"> <i class="fa fa-star-o"></i>&nbsp;Pendiente</span>
-                                        <span *ngIf="appoitmentp.status === 2"> <i class="fa fa-star"></i>&nbsp;Atendida</span>
+                            <div class="logo_local">
+                                <img [src]="appoitmentp.doctor.avatar" alt="">
+                            </div>
+                            <div class="contenido">
+                                <div class="info_local">
+                                    <h3>{{appoitmentp.doctor.full_name}}</h3>
+                                    <div class="infcita">
+                                        <p class="esp">{{appoitmentp.speciality.name}}</p>
+                                        <p class="fech">{{appoitmentp.date_appointment_format}}</p>
+                                        <p class="monto">Costo: ${{appoitmentp.amount}}</p>
+                                        <p class="pagado">
+                                            <span *ngIf="appoitmentp.status_pay === 1">Pagado</span>
+                                            <span *ngIf="appoitmentp.status_pay === 2">Deuda</span>
+                                        </p>
+                                        <!-- <p class="tiemp">{{appoitmentp.format_hour_start}} a {{appoitmentp.format_hour_end}}</p> -->
+                                        <p class="tiemp">{{appoitmentp.segment_hour.format_segment.hour_start}} a {{appoitmentp.segment_hour.format_segment.hour_end}}</p>
                                     </div>
                                 </div>
-                            </a>
+                                <div class="calificacion">
+                                    <span *ngIf="appoitmentp.status === 1"> <i class="fa fa-star-o"></i>&nbsp;Pendiente</span>
+                                    <span *ngIf="appoitmentp.status === 2"> <i class="fa fa-star"></i>&nbsp;Atendida</span>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
