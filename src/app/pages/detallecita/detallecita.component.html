@@ -9,10 +9,10 @@
 </div>
 
 <div *ngIf="!cargando">
-<div *ngIf="!appointment">
+<!-- <div >
     <h2 class="notiene">Su Cita aún no ha sido atendida.</h2>
-</div>
-    <section class="container animated fadeInUp " style=" padding-top: 30px; padding-bottom: 50px;" *ngIf="appointment">
+</div> -->
+    <section class="container animated fadeInUp " style=" padding-top: 30px; padding-bottom: 50px;" >
         
         <div class="perfil" >
                     
@@ -63,7 +63,7 @@
                 </p>
                 <p class="monto">
                     <b>Descripción Receta:</b> <br>
-                    {{appointment_attention.description}}
+                    {{description}}
                 </p>
                 <p class="tiemp">
                     <b>Recipe:</b> <br>

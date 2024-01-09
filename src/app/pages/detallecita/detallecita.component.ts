@@ -27,6 +27,7 @@ export class DetallecitaComponent implements OnInit {
   appointment_attention:any;
   recetas:any;
   description:any;
+  doctor:any;
 
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -63,6 +64,7 @@ getInfoCita(){
       this.appointment = resp.appointments;
       this.recetas = resp.appointment_attention.receta_medica;
       this.description = resp.appointment_attention.description;
+      this.doctor = resp.appointment.doctor;
       
     })
   }

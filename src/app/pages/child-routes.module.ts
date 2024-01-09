@@ -7,6 +7,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { AddAppointmentsComponent } from './agendar-cita/add-appointments/add-appointments.component';
 import { DetallecitaComponent } from './detallecita/detallecita.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { PagarComponent } from './pagos/pagar/pagar.component';
+import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
 
 //pages
 
@@ -32,6 +34,12 @@ const childRoutes: Routes = [
     },
     {
       path:'detalle-cita/:id', component:DetallecitaComponent
+    },
+    {
+      path:'pagar/:id', component:PagarComponent
+    },
+    {
+      path:'mis-pagos', component:MisPagosComponent
     },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -1,0 +1,32 @@
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <div class="alert-heading">Cargando</div>
+            <i class="fa fa-spin fa-refresh fa-1x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+    </div>
+</div>
+<div class="container pt-3" *ngIf="!cargando">
+    <h3 class="text-center">Mis Pagos</h3>
+    <ng-container *ngFor="let payment of payments">
+        <div class="card">
+            <p><b>Referencia:</b> {{payment.referencia}}</p>
+                <p><b>Email:</b> {{payment.email}}</p>
+                <p><b>Bank_name:</b> {{payment.bank_name}}</p>
+                <p><b>Metodo:</b> {{payment.metodo}}</p>
+                <p><b>Status:</b> 
+                    &nbsp;<span class="badge bg-success"
+                    *ngIf="payment.status === 'APPROVED'">Aprobado</span>
+                &nbsp;<span class="badge bg-primary"
+                    *ngIf="payment.status === 'PENDING'">Pendiente</span>
+                &nbsp;<span class="badge bg-danger"
+                    *ngIf="payment.status === 'REJECTED'">Rechazado</span>
+                </p>
+                <p><b>Fecha del pago:</b> {{payment.fecha |date:'MMM d, y'}}</p>
+                <p><b>Pagado:</b> {{payment.created_at|date:'MMM d, y'}}</p>
+        </div>
+    </ng-container>
+    
+</div>
+

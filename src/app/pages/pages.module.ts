@@ -14,6 +14,8 @@ import { PagesComponent } from './pages.component';
 import { AddAppointmentsComponent } from './agendar-cita/add-appointments/add-appointments.component';
 import { DetallecitaComponent } from './detallecita/detallecita.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
+import { PagarComponent } from './pagos/pagar/pagar.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     PagesComponent,
     AddAppointmentsComponent,
     DetallecitaComponent,
-    DoctorProfileComponent
+    DoctorProfileComponent,
+    MisPagosComponent,
+    PagarComponent
   ],
   exports: [
     HomeComponent,
@@ -35,7 +39,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     PagesComponent,
     AddAppointmentsComponent,
     DetallecitaComponent,
-    DoctorProfileComponent
+    DoctorProfileComponent,
+    MisPagosComponent,
+    PagarComponent
   ],
   imports: [
     CommonModule,
