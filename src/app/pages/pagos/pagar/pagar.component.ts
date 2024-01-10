@@ -17,7 +17,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PagarComponent implements OnInit {
   public PaymentRegisterForm: FormGroup;
-  
+  public cargando: boolean = true;
+
   metodo:string;
   usuario:User;
   user:any;
@@ -46,6 +47,7 @@ export class PagarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.validarFormulario();
     this.getTiposdepagos();
     this.activatedRoute.params.subscribe((resp:any)=>{
@@ -61,9 +63,9 @@ export class PagarComponent implements OnInit {
  
   
 getInfoCita(){
-  // this.cargando = true;
+  this.cargando = true;
     this.appoitmentService.showAppointment(this.appointment_id).subscribe((resp:any)=>{
-      // this.cargando = false;
+      this.cargando = false;
       // console.log(resp);
       this.appointment = resp.appointment;
       this.deuda = resp.deuda;

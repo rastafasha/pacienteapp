@@ -38,7 +38,7 @@ export class ListaComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    console.log(this.user);
+    // console.log(this.user);
     // this.authService.getLocalStorage();
     // this.authService.closeMenu();
     this.getInfoUser();
@@ -65,7 +65,7 @@ export class ListaComponent implements OnInit {
     this.cargando = true;
     this.userService.showPatientProfile(this.patient_id).subscribe((resp:any)=>{
       this.cargando = false;
-      console.log('todo appointment',resp);
+      // console.log('todo appointment',resp);
       this.patient_selected= resp.patient;
       this.appointments= resp.appointments;
       this.appointment_pendings= resp.appointment_pendings.data;

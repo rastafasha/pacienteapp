@@ -29,6 +29,7 @@ export class GridHomeComponent implements OnInit {
   appointment_attention:any;
   patient_selected:any;
   appointment_pendings:any;
+  appointment_checkeds:any;
   recetas:any;
 
   constructor(
@@ -68,6 +69,8 @@ export class GridHomeComponent implements OnInit {
       // console.log('todo appointment',resp);
       this.patient_selected= resp.patient;
       this.appointments= resp.appointments;
+      // this.appointment_checkeds= resp.appointment_checkeds.data[0];
+      // console.log(this.appointment_checkeds);
       this.appointment_pendings= resp.appointment_pendings.data;
       this.appointment_attention= resp.appointments[0].appointment_attention;
 

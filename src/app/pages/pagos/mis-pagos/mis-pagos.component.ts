@@ -39,6 +39,7 @@ export class MisPagosComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.getInfoUser();
+    this.authService.closeMenu();
   }
 
 
