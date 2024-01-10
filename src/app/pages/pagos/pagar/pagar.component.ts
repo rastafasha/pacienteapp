@@ -103,9 +103,6 @@ getInfoCita(){
     formData.append('fecha', this.PaymentRegisterForm.get('fecha').value);
     formData.append('status', 'PENDING');
     
-    if(this.PaymentRegisterForm.value.image){
-      formData.append('image', this.PaymentRegisterForm.get('image').value);
-    }
 
 
     //crear
@@ -121,7 +118,7 @@ getInfoCita(){
       // console.log(this.pagoSeleccionado);
       // this.emptyCart();
     })
-
+    return false;
   }
 
   selectedTypeCoupon(value:any){
