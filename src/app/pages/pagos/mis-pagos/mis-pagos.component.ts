@@ -71,20 +71,20 @@ export class MisPagosComponent implements OnInit {
     this.cargando = true;
     this.paymentService.getPagosbyUser(this.patient_id).subscribe((resp:any)=>{
       this.cargando = false;
-      console.log(resp.data);
+      // console.log(resp.data);
       this.payments= resp.data;
-      this.appointment_id = resp.appointment_id;
-      console.log(this.appointment_id);
+      // this.appointment_id = resp.data.appointment_id;
+      // console.log(this.appointment_id);
     })
     // this.getInfoCita();
   }
 
-  getInfoCita(){
-      this.appoitmentService.showAppointment(this.appointment_id).subscribe((resp:any)=>{
-        console.log(resp);
-        this.appointment = resp.appointment;
+  // getInfoCita(){
+  //     this.appoitmentService.showAppointment(this.appointment_id).subscribe((resp:any)=>{
+  //       console.log(resp);
+  //       this.appointment = resp.appointment;
         
-      })
-    }
+  //     })
+  //   }
 
 }
