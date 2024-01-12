@@ -48,32 +48,10 @@
                                 <div class="info">
                                     <h5 class="text-center">¿Cómo hacer el pago?</h5>
                                     <ol>
-                                        <li>Copie los datos suministrados para procesar el pago: <br>
-                                            <span>
-                                        <b>Metodo</b><br>
-                                        <b>Banco</b><br>
-                                       <b>Correo o Número de Cuenta</b><br>
-                                     <b>Monto</b>
-                                    </span>
-                                        </li>
-                                    </ol>
-                                    <ol>
-        
-                                        <li>Ingrese a la app o web del metodo de su preferencia,
-                                            <ul class="opcionespago">
-                                                <li class="badge bg-primary">Paypal</li>
-                                                <li class="badge bg-primary">Zelle</li>
-                                                <li class="badge bg-primary">Pago Móvil</li>
-                                                <li class="badge bg-primary">Transferencia nacional e internacional</li>
-                                            </ul>
-                                        </li>
+                                        <li>Ingrese a la app o web del metodo de su preferencia</li>
                                         <li>Ingrese los datos correctamente, y verifique antes de pagar </li>
                                         <li>Copiar el <b>Número de Referencia</b> del pago o transferencia </li>
                                         <li>Dirigirse a nuestro <b>Formulario</b> y llenar los datos requeridos </li>
-                                        <li>Colocar el <b>Número de referencia</b> en el campo correspondido </li>
-                                        <li>Adjuntar la foto del pago </li>
-                                        <li>Le indicaremos el cambio de status. </li>
-                                        <li>Si es en efectivo, colocar en el banco efectivo <br> y en referencia el (los) número del (los) billete</li>
                                     </ol>
                                 </div>
         
@@ -81,7 +59,7 @@
                             <div class="clear"></div>
                             <div class="datosTranf" >
                                 <div class="datos"*ngFor="let pago of paymentMethods">
-                                    <h3>{{pago.tipo | uppercase}}</h3>
+                                    <p><b>{{pago.tipo | uppercase}}</b></p>
                                     <div class="clear"></div>
                                     <p><b>Método:</b> {{pago.tipo}}</p>
                                     <p *ngIf="pago.email"><b>Correo:</b> {{pago.email}}</p>
@@ -131,10 +109,6 @@
                                                         <div class="form-check chickd" >
                                                             <input class="form-check-input" formControlName="metodo"  [checked]="metodo == 'pagomovil'" (click)="selectedTypeCoupon('pagomovil')"   type="radio" value="Pago Movil" id="radiotipo4">
                                                             <label class="form-check-label" for="radiotipo4">Pago Movil</label>
-                                                        </div>
-                                                        <div class="form-check chickd" >
-                                                            <input class="form-check-input" formControlName="metodo"  [checked]="metodo == 'efectivo'" (click)="selectedTypeCoupon('efectivo')"   type="radio" value="Efectivo" id="radiotipo5">
-                                                            <label class="form-check-label" for="radiotipo5">Efectivo</label>
                                                         </div>
                                                     </div>
                                                 </div>

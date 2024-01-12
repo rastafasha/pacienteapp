@@ -107,14 +107,58 @@
 }
 
 .darkmode .tab-content-set{
-    position: fixed;
     color: var(--blanco);
     background-color: var(--fondo-negro);
-    z-index: 9;
-    width: 100vw;
 }
 
 .darkmode b {
+    color: var(--blanco);
+}
+.darkmode .navbarM a.active {
+    background: #9c9a9a;
+    color: #fff;
+}
+.darkmode .tab-content-set li a {
+    color: #fff;
+}
+.darkmode .btn-sm {
+    color: #fff;
+    border:1px solid #fff;
+}
+.darkmode .info_local {
+    color: #fff;
+}
+
+.darkmode .accordion-item{
+    background: var(--fondo-negro);
+    color:  var(--blanco);
+}
+.darkmode .accordion-button:not(.collapsed) {
+    color: var(--blanco);
+    background-color: #101010;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+}
+.darkmode .accordion-item .accordion-button {
+    color: var(--blanco);
+    background-color: #101010;
+}
+.darkmode .accordion-button {
+    color: #ffffff;
+    background-color: #282828;
+    
+}
+
+.darkmode .accordion-body {
+    background: #201f1f;
+}
+.darkmode .recibo,
+.darkmode .legall,
+.darkmode .legall h2,
+.darkmode .legall p {
+    color: var(--blanco);
+}
+
+.darkmode .recibo h3{
     color: var(--blanco);
 }
 

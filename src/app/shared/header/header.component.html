@@ -23,8 +23,8 @@
                     <ul>
 
                         <li>
-                            <img class="globowhite"  (click)="darkMode('dark')" src="./assets/svg/bulb_bulb-dark.svg" alt="">
-                            <img class="globoblack"  (click)="darkMode('dark')" src="./assets/svg/bulb_bulb-light.svg" alt="">
+                            <img class="globowhite"  (click)="darkMode('dark')" src="./assets/svg/luna.svg" alt="">
+                            <img class="globoblack"  (click)="darkMode('dark')" src="./assets/svg/sol.svg" alt="">
                         </li>
                     </ul>
                     <div class="menu">
@@ -49,45 +49,19 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a routerLink="/app/home">
-                                            <i class="fa fa-home"></i>&nbsp; Inicio
+                                        <a routerLink="/app/ayuda">
+                                            <i class="fa fa-life-ring"></i>&nbsp; Ayuda en Línea
                                         </a>
                                     </li>
                                     
                                     <li>
-                                        <a routerLink="/app/perfil">
-                                            <i class="fa fa-home"></i>&nbsp; Mi Perfil
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a routerLink="/app/agendar-cita">
-                                            <i class="fa fa-home"></i>&nbsp; Agendar Cita
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a routerLink="/app/mis-pagos">
-                                            <i class="fa fa-microphone"></i>&nbsp; Mis pagos
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-microphone"></i>&nbsp; Ayuda en Línea
-                                        </a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-info-circle"></i>&nbsp; Información legal
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a  (click)="darkMode('darkmode')" >
-                                            <i class="fa fa-info-circle"></i>&nbsp; Dark Mode
+                                        <a routerLink="/app/legal">
+                                            <i class="fa fa-balance-scale"></i>&nbsp; Información legal
                                         </a>
                                     </li>
                                     <li>
                                         <a (click)="logout()">
-                                            <i class="fa fa-info-circle"></i>&nbsp; Salir
+                                            <i class="fa fa-sign-out"></i>&nbsp; Salir
                                         </a>
                                     </li>
                                 </ul>

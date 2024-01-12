@@ -125,10 +125,10 @@ crearUsuario(){
 
   this.authService.crearUsuario(this.registerForm.value).subscribe(
     resp =>{
-      Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
+      // Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
       this.ngOnInit();
     },(error) => {
-      Swal.fire('Error', error.error.msg, 'error');
+      // Swal.fire('Error', error.error.msg, 'error');
       this.errors = error.error;
     }
   );

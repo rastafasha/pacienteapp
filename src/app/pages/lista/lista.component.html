@@ -41,19 +41,19 @@
                                     <h3>{{appoitmentp.doctor.full_name}}</h3>
                                     <div class="infcita">
                                         <p class="esp">{{appoitmentp.speciality.name}}</p>
-                                        <p class="fech">{{appoitmentp.date_appointment_format}}</p>
+                                        <p class="fech">&nbsp;{{appoitmentp.date_appointment_format}}</p>
                                         <p class="monto">Costo: ${{appoitmentp.amount}}</p>
                                         <p class="pagado">
-                                            <span *ngIf="appoitmentp.status_pay === 1">Pagado</span>
-                                            <span *ngIf="appoitmentp.status_pay === 2">Deuda</span>
+                                            <span *ngIf="appoitmentp.status_pay === 1">&nbsp;Pagado</span>
+                                            <span *ngIf="appoitmentp.status_pay === 2">&nbsp;Deuda</span>
                                         </p>
                                         <!-- <p class="tiemp">{{appoitmentp.format_hour_start}} a {{appoitmentp.format_hour_end}}</p> -->
                                         <p class="tiemp">{{appoitmentp.segment_hour.format_segment.hour_start}} a {{appoitmentp.segment_hour.format_segment.hour_end}}</p>
                                     </div>
                                 </div>
                                 <div class="calificacion">
-                                    <span *ngIf="appoitmentp.status === 1"> <i class="fa fa-star-o"></i>&nbsp;Pendiente</span>
-                                    <span *ngIf="appoitmentp.status === 2"> <i class="fa fa-star"></i>&nbsp;Atendida</span>
+                                    <span *ngIf="appoitmentp.status === 1"> <i class="fa fa-circle-o-notch"></i>&nbsp;Pendiente</span>
+                                    <span *ngIf="appoitmentp.status === 2"> <i class="fa fa-check-circle"></i>&nbsp;Atendida</span>
                                     <div class="clear"></div><br>
                                     <button class="btn btn-sm" *ngIf="appoitmentp.status_pay === 2" [routerLink]="['/app/pagar/', appoitmentp.id]">Pagar</button>
                                 </div>
@@ -85,18 +85,18 @@
                                         <h3>{{appoitment.doctor.full_name}}</h3>
                                         <div class="infcita">
                                             <p class="esp">{{appoitment.speciality.name}}</p>
-                                            <p class="fech">{{appoitment.date_appointment_format}}</p>
+                                            <p class="fech">&nbsp;{{appoitment.date_appointment_format}}</p>
                                             <p class="monto">Costo: ${{appoitment.amount}}</p>
                                             <p class="pagado">
-                                                <span *ngIf="appoitment.status_pay === 1">Pagado</span>
-                                                <span *ngIf="appoitment.status_pay === 2">Deuda</span>
+                                                <span *ngIf="appoitment.status_pay === 1"> &nbsp;Pagado</span>
+                                                <span *ngIf="appoitment.status_pay === 2"> &nbsp;Deuda</span>
                                             </p>
                                             <p class="tiemp">{{appoitment.format_hour_start}} a {{appoitment.format_hour_end}}</p>
                                         </div>
                                     </div>
                                     <div class="calificacion">
-                                        <span *ngIf="appoitment.status === 1"> <i class="fa fa-star-o"></i>&nbsp;Pendiente</span>
-                                        <span *ngIf="appoitment.status === 2"> <i class="fa fa-star"></i>&nbsp;Atendida</span>
+                                        <span *ngIf="appoitment.status === 1"> <i class="fa fa-circle-o-notch"></i>&nbsp;Pendiente</span>
+                                    <span *ngIf="appoitment.status === 2"> <i class="fa fa-check-circle"></i>&nbsp;Atendida</span>
                                         <div class="clear"></div><br>
                                     <button class="btn btn-sm" *ngIf="appoitment.status_pay === 2" [routerLink]="['/app/pagar/', appoitment.id]">Pagar</button>
                                     </div>
@@ -128,18 +128,18 @@
                                         <h3>{{appoitment.doctor.full_name}}</h3>
                                         <div class="infcita">
                                             <p class="esp">{{appoitment.speciality.name}}</p>
-                                            <p class="fech">{{appoitment.date_appointment_format}}</p>
+                                            <p class="fech">&nbsp;{{appoitment.date_appointment_format}}</p>
                                             <p class="monto">Costo: ${{appoitment.amount}}</p>
                                             <p class="pagado">
-                                                <span *ngIf="appoitment.status_pay === 1">Pagado</span>
-                                                <span *ngIf="appoitment.status_pay === 2">Deuda</span>
+                                                <span *ngIf="appoitment.status_pay === 1">&nbsp;Pagado</span>
+                                                <span *ngIf="appoitment.status_pay === 2">&nbsp;Deuda</span>
                                             </p>
                                             <p class="tiemp">{{appoitment.format_hour_start}} a {{appoitment.format_hour_end}}</p>
                                         </div>
                                     </div>
                                     <div class="calificacion">
-                                        <span *ngIf="appoitment.status === 1"> <i class="fa fa-star-o"></i>&nbsp;Pendiente</span>
-                                        <span *ngIf="appoitment.status === 2"> <i class="fa fa-star"></i>&nbsp;Atendida</span>
+                                        <span *ngIf="appoitment.status === 1"> <i class="fa fa-circle-o-notch"></i>&nbsp;Pendiente</span>
+                                    <span *ngIf="appoitment.status === 2"> <i class="fa fa-check-circle"></i>&nbsp;Atendida</span>
                                         <div class="clear"></div><br>
                                     <button class="btn btn-sm" *ngIf="appoitment.status_pay === 2" [routerLink]="['/app/pagar/', appoitment.id]">Pagar</button>
                                     </div>

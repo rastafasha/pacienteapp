@@ -16,6 +16,8 @@ import { DetallecitaComponent } from './detallecita/detallecita.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
 import { PagarComponent } from './pagos/pagar/pagar.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
+import { LegalComponent } from './legal/legal.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { PagarComponent } from './pagos/pagar/pagar.component';
     DetallecitaComponent,
     DoctorProfileComponent,
     MisPagosComponent,
-    PagarComponent
+    PagarComponent,
+    AyudaComponent,
+    LegalComponent
   ],
   exports: [
     HomeComponent,
@@ -41,7 +45,9 @@ import { PagarComponent } from './pagos/pagar/pagar.component';
     DetallecitaComponent,
     DoctorProfileComponent,
     MisPagosComponent,
-    PagarComponent
+    PagarComponent,
+    AyudaComponent,
+    LegalComponent
   ],
   imports: [
     CommonModule,

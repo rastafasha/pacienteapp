@@ -18,7 +18,10 @@
     /* IE6-9 */
 }
 
-
+p{
+    padding: 0;
+    margin: 0;
+}
 /* nuevo */
 
 .loginregister {
@@ -43,7 +46,7 @@
 }
 
 .signup label {
-    color: var(--white);
+    color: var(--blanco);
     justify-content: center;
     display: flex;
     margin: -45px 20px;
@@ -53,7 +56,7 @@
 }
 
 label {
-    color: var(--white);
+    color: var(--blanco);
     justify-content: center;
     display: flex;
     margin: 60px;
@@ -72,7 +75,7 @@ label {
 }
 
 .signup label h1 {
-    color: var(--white);
+    color: var(--blanco);
     font-size: 2.3em;
     justify-content: center;
     display: flex;
@@ -93,7 +96,7 @@ label {
     flex-direction: row;
     align-content: center;
     justify-content: flex-start;
-    color: var(--white);
+    color: var(--blanco);
 }
 
 .signup p span {
@@ -101,7 +104,7 @@ label {
 }
 
 .signup label p {
-    color: var(--white);
+    color: var(--blanco);
     font-size: 14px;
     justify-content: center;
     display: flex;
@@ -158,21 +161,15 @@ button {
     margin: 10px auto;
     justify-content: center;
     display: block;
-    color: var(--white);
-    background: var(--morado);
     font-size: 1em;
     font-weight: bold;
     margin-top: 10px;
     outline: none;
-    border: 1px solid var(--white);
     border-radius: 5px;
     transition: .2s ease-in;
     cursor: pointer;
 }
 
-button:hover {
-    background: var(--morado);
-}
 
 .login {
     height: 500px;
@@ -181,8 +178,8 @@ button:hover {
     width: 100%;
     left: 0;
     background: #eee;
-    border-radius: 60% / 10%;
-    transform: translateY(10px);
+    /* border-radius: 60% / 10%; */
+    transform: translateY(50px);
     transition: .8s ease-in-out;
     justify-content: center;
     align-content: center;
@@ -198,7 +195,6 @@ button:hover {
     font-size: 2.3em;
     justify-content: center;
     display: flex;
-    margin-bottom: 40px;
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
@@ -224,7 +220,7 @@ button:hover {
 }
 
 #chk:checked~.login label h1 {
-    transform: translate(0px, 30px);
+    /* transform: translate(0px, 30px); */
 }
 
 #chk:checked~.signup label {
@@ -281,11 +277,11 @@ button:hover {
 
 @media(max-width:375px) {
     #chk:checked~.login {
-        transform: translateY(-590px);
-        padding-top: 30px;
+        transform: translateY(-630px);
+    padding-top: 30px;
     }
     .login {
-        height: 580px;
+        height: 100vh;
         padding-top: 60px;
         box-shadow: 0px -6px 16px #000;
     }
@@ -296,7 +292,7 @@ button:hover {
         border-radius: 0px;
         padding: 0;
         margin: 0;
-        padding-top: 50px;
+        padding-top: 20px;
         
     }
 

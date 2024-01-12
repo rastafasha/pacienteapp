@@ -9,6 +9,8 @@ import { DetallecitaComponent } from './detallecita/detallecita.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { PagarComponent } from './pagos/pagar/pagar.component';
 import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
+import { LegalComponent } from './legal/legal.component';
 
 //pages
 
@@ -40,6 +42,12 @@ const childRoutes: Routes = [
     },
     {
       path:'mis-pagos', component:MisPagosComponent
+    },
+    {
+      path:'ayuda', component:AyudaComponent
+    },
+    {
+      path:'legal', component:LegalComponent
     },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -14,7 +14,7 @@
         <img src="./assets/images/logomalcolm.png" alt="">
         <div class="signup">
             <form [formGroup]="loginForm" id="loginform" (ngSubmit)="login()" autocapitalize="off">
-                <label for="chk" aria-hidden="true"><h1>Ingresar</h1></label>
+                <label for="chk" aria-hidden="true" ><h1>Ingresar</h1></label>
                
                 <div class="form-group ">
                     <div class="col-xs-12">
@@ -47,7 +47,7 @@
                 
                 <label for="chk" aria-hidden="true">
                     <p  class="text-light text-center" style="display: flex;
-                flex-direction: column;"> ¿No posee cuenta? </p>
+                flex-direction: column;"> ¿Eres nuevo? </p>
                 </label>
             </form>
         </div>
@@ -56,7 +56,7 @@
             <form [formGroup]="registerForm" (ngSubmit)="crearUsuario()" autocapitalize="off" style="margin-top: 10px;">
                 <label for="chk" aria-hidden="true">
                     <p  class="text-light text-center" style="display: flex;
-                flex-direction: column; color: var(--morado) !important"> ¿Ya eres Miembro? </p>
+                flex-direction: column; color: var(--morado) !important"> ¿Ya eres Paciente? </p>
                 </label>
                 
                 <label for="chk" aria-hidden="true"><h1>Registro</h1></label>
@@ -78,12 +78,14 @@
                 </div>
                 <div class="form-group ">
                     <div class="col-xs-12">
+                        <small>Mínimo 8 caracteres.</small>
                         <input class="form-control" type="password" formControlName="password" placeholder="Contraseña">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" type="password" formControlName="password2" placeholder="Confirmar C.">
+                        <small>Deben ser iguales.</small>
+                        <input class="form-control" type="password" formControlName="password2" placeholder="Confirmar">
                     </div>
                 </div>
                 <div class="row">
@@ -95,7 +97,7 @@
                         <p *ngIf="passwordNoValido()"><span>*</span> La Contraseña deben ser iguales </p>
                     </div>
                 </div>
-                <button (click)="crearUsuario()">Registrar</button>
+                <button class="btn btn-outline-success" (click)="crearUsuario()">Registrar</button>
             </form>
         </div>
     </div>

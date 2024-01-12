@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
       'darkmode'
      ).length > 0;
 
-    var dayNight = document.getElementsByClassName("home");
+    var dayNight = document.getElementsByClassName("site");
       for (var i = 0; i<dayNight.length; i++) {
         // dayNight[i].classList.toggle("darkmode");
         element.classList.toggle("darkmode");

@@ -10,7 +10,7 @@
     margin-top: 10px;
     position: fixed;
     background-color: var(--fondo-blanco);
-    z-index: 9;
+    z-index: 1;
     width: 100vw;
     padding-top: 10px;
     padding-bottom: 10px;

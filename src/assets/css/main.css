@@ -171,6 +171,11 @@ textarea {
     opacity: 0.5;
 }
 
+.btn-sm {
+    color: var(--black);
+    border:1px solid var(--black);
+}
+
 @media(min-width:768px) {
     .col-md-6 {
         flex: 0 0 auto;

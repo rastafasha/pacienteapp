@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { of, delay } from 'rxjs';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ConfigService } from 'src/app/services/config.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -31,10 +32,12 @@ export class GridHomeComponent implements OnInit {
   appointment_pendings:any;
   appointment_checkeds:any;
   recetas:any;
+  settting:any;
 
   constructor(
     public authService:AuthService,
     public userService:UserService,
+    public configService:ConfigService,
     public appoitmentService:AppointmentService,
   ) { 
     this.user = this.authService.user;
@@ -45,7 +48,16 @@ export class GridHomeComponent implements OnInit {
     this.authService.getLocalStorage();
     this.authService.closeMenu();
     this.getInfoUser();
+    this.getConfig();
     
+  }
+
+  getConfig(){
+    this.configService.getAllConfig().subscribe((resp:any)=>{
+      // console.log(resp);
+      this.settting = resp.settings.data[0]
+      // console.log(this.settting);
+    })
   }
 
   getInfoUser(){

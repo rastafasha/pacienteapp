@@ -10,7 +10,7 @@
     height: 100%;
     grid-gap: 0px;
     position: absolute;
-    top: 15px;
+    top: 5px;
     left: 0px;
 }
 .fotoPerfil  {
@@ -138,6 +138,7 @@
     height: 100%;
     grid-gap: 0px;
     grid-gap: 0px;
+    width: 180px;
 }
 
 .esp{

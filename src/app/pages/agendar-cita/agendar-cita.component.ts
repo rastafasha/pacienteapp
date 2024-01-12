@@ -21,7 +21,6 @@ export class AgendarCitaComponent implements OnInit {
   specialities:any;
   speciality_id:any;
   specilityie_id:any;
-  specilityie:any;
   date_appointment:any;
   speciality:any;
   
@@ -75,7 +74,7 @@ export class AgendarCitaComponent implements OnInit {
   getPrice(){
     this.appointmentService.showSpeciality(this.specilityie_id).subscribe((resp:any)=>{
       console.log('speciality',resp);
-      this.specilityie = resp;
+      this.speciality = resp;
       
     })
 
@@ -139,7 +138,7 @@ export class AgendarCitaComponent implements OnInit {
   save(){debugger
     this.text_validation = '';
 
-    this.speciality_id = this.specilityie.id;
+    this.speciality_id = this.speciality.id;
 
     // if(this.amount < this.amount_add){
     //   this.text_validation = "El Monto ingresado como adelanto no puede ser mayor al costo de la cita medica";
@@ -165,7 +164,7 @@ export class AgendarCitaComponent implements OnInit {
         "date_appointment": this.date_appointment,
         "speciality_id": this.speciality_id,
         "doctor_schedule_join_hour_id": this.selected_segment_hour.id,
-        amount:this.specilityie.price,
+        amount:this.speciality.price,
         amount_add:0,
         method_payment:'Pendiente',
         // amount:this.amount,
@@ -181,7 +180,17 @@ export class AgendarCitaComponent implements OnInit {
     })
   }
 
-  
+  cancel(){
+    this.name= '';
+    this.surname= '';
+    this.phone= '';
+    this.n_doc= 0;
+    this.name_companion= '';
+    this.surname_companion= '';
+    this.date_appointment= '';
+    this.hour= '';
+    this.selected_segment_hour.id = 0;
+  }
 
 
 }
