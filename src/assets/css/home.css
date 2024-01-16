@@ -259,8 +259,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 940px;
+    justify-content: flex-start;
+    width: max-content;
 }
 
 .publicidad_home_item {
@@ -270,7 +270,7 @@
     background: #e7e4e4;
     border-radius: 4px;
     height: 120px;
-    width: 100%;
+    width: 86vw;
     margin-right: 5px;
     font-size: 14px;
     color: var(--black);

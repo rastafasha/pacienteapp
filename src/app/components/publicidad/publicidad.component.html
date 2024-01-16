@@ -1,15 +1,15 @@
-<div *ngIf="obs$ | async as obs; else loading" >
-    <ng-template #loading>Loading...</ng-template>
+<div>
     <section class="container animated fadeInUp">
         <h4>Publicidad</h4>
         <div class="overflow">
-            <div class=" publicidad_home">
-                <div class="publicidad_home_item">
-                    <a href="mercados.html">
-                        <img src="./assets/images/food/hot-dogs.jpeg" alt="">
-                    </a>
-                </div>
-                <div class="publicidad_home_item">
+            <div class=" publicidad_home" >
+                <ng-container *ngFor="let item of publicidads | slice:0:5">
+                    <div class="publicidad_home_item">
+                        <img [src]="item.avatar" alt="">
+                    </div>
+                </ng-container>
+                
+                <!-- <div class="publicidad_home_item">
                     <a href="mercados.html">
                         <img src="./assets/images/food/breads.jpeg" alt="">
                     </a>
@@ -18,7 +18,7 @@
                     <a href="mercados.html">
                         <img src="./assets/images/food/sushi-casero.jpeg" alt="">
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     

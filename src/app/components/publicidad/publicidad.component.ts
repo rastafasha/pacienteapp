@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of, delay } from 'rxjs';
+import { PublicidadService } from 'src/app/services/publicidad.service';
 
 @Component({
   selector: 'app-publicidad',
@@ -8,12 +9,20 @@ import { of, delay } from 'rxjs';
 })
 export class PublicidadComponent implements OnInit {
 
-  loading:boolean;
-  obs$ = of(1).pipe(delay(500));
+  public cargando: boolean = true;
+
+  publicidads:any;
   
-  constructor() { }
+  constructor(
+    public publicidadService:PublicidadService
+  ) { }
 
   ngOnInit(): void {
+    this.publicidadService.listPublicidadActivos().subscribe((resp:any)=>{
+      console.log(resp);
+      this.publicidads = resp.publicidads.data;
+    })
   }
+  
 
 }
