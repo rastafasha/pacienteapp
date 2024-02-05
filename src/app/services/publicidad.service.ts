@@ -17,7 +17,7 @@ export class PublicidadService {
 
   listPublicidadActivos(){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token})
-    let URL = baseUrl+'/publicidad/activos';
+    let URL = baseUrl+'/pub/activos';
     return this.http.get(URL, {headers:headers});
   }
   

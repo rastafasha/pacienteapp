@@ -11,7 +11,7 @@ export class PublicidadComponent implements OnInit {
 
   public cargando: boolean = true;
 
-  publicidads:any;
+  pubs:any;
   
   constructor(
     public publicidadService:PublicidadService
@@ -20,7 +20,7 @@ export class PublicidadComponent implements OnInit {
   ngOnInit(): void {
     this.publicidadService.listPublicidadActivos().subscribe((resp:any)=>{
       console.log(resp);
-      this.publicidads = resp.publicidads.data;
+      this.pubs = resp.pubs.data;
     })
   }
   
