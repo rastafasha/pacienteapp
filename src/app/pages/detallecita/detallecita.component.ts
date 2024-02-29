@@ -51,8 +51,9 @@ getInfoCita(){
   this.cargando = true;
     this.appoitmentService.showAppointment(this.appointment_id).subscribe((resp:any)=>{
       this.cargando = false;
-      // console.log(resp);
+      console.log(resp);
       this.appointment = resp.appointment;
+      this.doctor = resp.appointment.doctor;
       
     })
   }
@@ -64,7 +65,7 @@ getInfoCita(){
       this.appointment = resp.appointments;
       this.recetas = resp.appointment_attention.receta_medica;
       this.description = resp.appointment_attention.description;
-      this.doctor = resp.appointment.doctor;
+      
       
     })
   }

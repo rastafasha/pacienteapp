@@ -25,6 +25,7 @@ export class MisPagosComponent implements OnInit {
   payments:any = [];
   appointment:any;
   patient_selected:any;
+  paymentSelected:any;
 
   constructor(
     public authService:AuthService,
@@ -86,5 +87,15 @@ export class MisPagosComponent implements OnInit {
         
   //     })
   //   }
+
+
+  selectedPayment(payment:any){
+    this.paymentSelected = payment
+    
+  }
+
+  back(){
+    this.paymentSelected = null;
+  }
 
 }

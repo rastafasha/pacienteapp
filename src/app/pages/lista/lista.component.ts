@@ -37,7 +37,7 @@ export class ListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     // console.log(this.user);
     // this.authService.getLocalStorage();
     // this.authService.closeMenu();

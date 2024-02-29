@@ -161,4 +161,8 @@
 .darkmode .recibo h3{
     color: var(--blanco);
 }
+.darkmode .pago p{
+    color: var(--blanco);
+}
+
 
