@@ -1,14 +1,13 @@
 {
   "dir": "ltr",
-  "name": "My Paciente App",
-  "short_name": "My Paciente App",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Health Connect",
+  "short_name": "Health Connect",
+  "theme_color": "#513081",
+  "description": "App to connect health clinics and patients.",
   "display": "standalone",
   "scope": "./",
   "start_url": "index.html",
   "orientation": "portrait",
-  "description": "Información Médica",
   "category": "medical",
   "icons": [
     {

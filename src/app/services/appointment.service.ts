@@ -73,4 +73,11 @@ export class AppointmentService {
     let URL = url_servicios+"/appointment-atention/show/"+appointment_id;
     return this.http.get(URL,{headers:headers});
   }
+
+
+  getLaboratoryByAppointment(appointment_id:any){
+    let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
+    let URL = url_servicios+"/laboratory/showByAppointment/"+appointment_id;
+    return this.http.get(URL,{headers:headers});
+  }
 }

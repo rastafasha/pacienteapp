@@ -103,7 +103,8 @@ textarea {
 }
 
 .logo {
-    background-image: url(../images/logomalcolm.png);
+    /* background-image: url(../images/logomalcolm.png); */
+    background-image: url(../svg/logoHealthConnect-02.svg);
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;

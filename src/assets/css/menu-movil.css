@@ -71,7 +71,7 @@
         /* rojo */
         /* filter: invert(10%) sepia(100%) saturate(2476%) hue-rotate(331deg) brightness(118%) contrast(119%); */
         /* azul */
-        filter: invert(10%) sepia(100%) saturate(2476%) hue-rotate(211deg) brightness(118%) contrast(119%);
+        filter: invert(10%) sepia(100%) saturate(2476%) hue-rotate(249deg) brightness(118%) contrast(119%);
     }
     .navbarM a.active img {
         filter: rgb(0, 68, 255);

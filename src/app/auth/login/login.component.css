@@ -233,7 +233,7 @@ button {
 }
 
 .main img {
-    width: 30%;
+    width: 50%;
     height: auto;
     margin: auto;
     display: flex;
@@ -277,8 +277,8 @@ button {
 
 @media(max-width:375px) {
     #chk:checked~.login {
-        transform: translateY(-630px);
-    padding-top: 30px;
+        transform: translateY(-640px);
+    padding-top: 0px;
     }
     .login {
         height: 100vh;
@@ -301,4 +301,12 @@ button {
         width: 100%;
         height: 80vh;
     }
+}
+
+.titleApp{
+    display: flex;
+    justify-content: center;
+    color: #f2f2f2;
+    margin-top: 20px;
+    font-size: 14px;
 }

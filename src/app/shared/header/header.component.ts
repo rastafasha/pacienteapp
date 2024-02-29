@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ConfigService } from 'src/app/services/config.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,13 +10,19 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  year: number = new Date().getFullYear();
   user:any;
   patient:any = [];
   usuario:any = [];
+  public settings:any;
+  public setting_selectedId:any;
+  public avatar_setting:any;
+  public name_setting:any;
 
   constructor(
     public authService:AuthService,
     public userService:UserService,
+    public configService:ConfigService,
     private router: Router,
     
   ) {
@@ -26,6 +33,7 @@ export class HeaderComponent implements OnInit {
     
     this.authService.getLocalStorage();
     this.getInfoUser()
+    this.getSettings()
     this.authService.getLocalDarkMode();
   }
 
@@ -40,6 +48,16 @@ export class HeaderComponent implements OnInit {
       // this.usuario = resp;
     })
   }
+
+  getSettings(){
+    this.configService.getAllSettings().subscribe((resp:any)=>{
+      // console.log(resp);
+      this.settings= resp.settings.data;
+      this.setting_selectedId= resp.settings.data[0].id;
+      this.avatar_setting= resp.settings.data[0].avatar;
+      this.name_setting= resp.settings.data[0].name;
+    })
+}
 
   openMenu(){
     var menuLateral = document.getElementsByClassName("sidemenu ");

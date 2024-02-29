@@ -19,33 +19,33 @@
             
             <div class="local_categoria_item" style="height: 220px;">
                 <div class="logo_local">
-                    <img [src]="appointment.doctor.avatar" alt="">
+                    <img [src]="avatar_doctor" alt="">
                 </div>
                 <div class="contenido" style="height: 130px;">
                     <div class="info_local">
-                        <h3>Dr.{{appointment.doctor.full_name}}</h3>
+                        <h3>Dr.{{doctor.full_name}}</h3>
                         <div class="infcita">
-                            <p class="esp">{{appointment.speciality.name}}</p>
+                            <p class="esp">{{speciality.name}}</p>
                             <p class="fech">
-                                <span *ngIf="appointment.status_pay === 1"> Pago: Pagado</span>
-                                <span *ngIf="appointment.status_pay === 2"> Pago: Deuda</span>
+                                <span *ngIf="status_pay === 1"> Pago: Pagado</span>
+                                <span *ngIf="status_pay === 2"> Pago: Deuda</span>
                             </p>
                             <p class="monto">
                                 <b>Comienz:</b> <br>
-                                {{appointment.segment_hour.format_segment.hour_start}}
+                                {{appointment_selected.segment_hour.format_segment.hour_start}}
                                 
                             </p>
                             <p class="pagado">
                                 <b>Finaliza:</b> <br>
-                                {{appointment.segment_hour.format_segment.hour_end}}
+                                {{appointment_selected.segment_hour.format_segment.hour_end}}
                                 
                             </p>
                             
                         </div>
                     </div>
                     <div class="calificacion">
-                        <span *ngIf="appointment.status === 1"> <i class="fa fa-info-circle"></i>&nbsp;Pendiente</span>
-                                <span *ngIf="appointment.status === 2"> <i class="fa fa-info-circle"></i>&nbsp;Atendida</span>
+                        <span *ngIf="appointment_selected.status === 1"> <i class="fa fa-info-circle"></i>&nbsp;Pendiente</span>
+                                <span *ngIf="appointment_selected.status === 2"> <i class="fa fa-info-circle"></i>&nbsp;Atendida</span>
                                 
                     </div>
                 </div>
@@ -55,11 +55,11 @@
             <div class="card" style="margin-top: -10px;">
                 <p class="monto">
                     <b>Fecha de la Cita:</b> <br>
-                    {{appointment.date_appointment_format}}
+                    {{appointment_selected.date_appointment_format}}
                 </p>
                 <p class="pagado">
                     <b>Acompañante:</b> <br>
-                    {{appointment.patient.name_companion}} {{appointment.patient.surname_companion}}
+                    {{appointment_selected.patient.name_companion}} {{appointment_selected.patient.surname_companion}}
                 </p>
                 <p class="monto">
                     <b>Descripción Receta:</b> <br>
@@ -77,6 +77,27 @@
                     </ng-container>
                     
                 </p>
+                
+            </div>
+            <div class="card" style="margin-top: -10px;" *ngIf="laboratory == 2">
+                <p class="monto">
+                    <b>Archivos de Laboratorio</b> <br>
+                </p>
+                <ng-container *ngFor="let FILE of FilesAdded">
+                    <div class="">
+                        <!--begin::Wrapper-->
+                        <div class="files">
+                            <img src="assets/svg/doc.svg" class="w-50px ms-n1 me-1 filesvg" alt="">
+                            <a [href]="FILE.file" target="_blank" class="text-gray-800 text-hover-primary fw-bolder tititle">{{FILE.name_file}}</a>
+                            <br>
+                            <span class="text-gray-400 fw-bolder sizeee">Size:
+                            <a href="#" onclick="return false;" class="text-gray-800 text-hover-primary fw-bolder">{{FILE.size}} Kb.</a></span>
+                                
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Info-->
+                </ng-container>
                 
             </div>
             

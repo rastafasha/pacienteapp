@@ -28,4 +28,11 @@ export class ConfigService {
     return this.http.get(URL,{headers:headers});
   }
 
+  getAllSettings(){
+    let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token})
+    let URL = url_servicios+'/setting';
+    return this.http.get(URL, {headers:headers});
+    
+  }
+
 }
