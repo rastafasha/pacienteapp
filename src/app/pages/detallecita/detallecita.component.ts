@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { of, delay } from 'rxjs';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { UserService } from 'src/app/services/user.service';
-
+declare var $:any;  
 @Component({
   selector: 'app-detallecita',
   templateUrl: './detallecita.component.html',
@@ -34,12 +35,16 @@ export class DetallecitaComponent implements OnInit {
   appointment_selected:any;
   appointment_selectedId:any;
   laboratory:number;
+
+  FILES:any = [];
   FilesAdded:any = [];
+  public file_selected:any;
 
   constructor(
     public activatedRoute: ActivatedRoute,
     public userService: UserService,
     public appoitmentService: AppointmentService,
+    private _sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit(): void {
@@ -93,6 +98,30 @@ getInfoCita(){
   }
 
 
+
+  getDocumentIframe(url) {
+    var document, results;
+
+    if (url === null) {
+        return '';
+    }
+    results = url.match('[\\?&]v=([^&#]*)');
+    document   = (results === null) ? url : results[1];
+
+    return this._sanitizer.bypassSecurityTrustResourceUrl(document);
+}
+
+closeModalDoc(){
+
+  $('#view-doc').hide();
+      $("#view-doc").removeClass("show");
+      $("#view-doc").css("display", "none !important");
+      $(".modal").css("display", "none !important");
+      $(".modal-backdrop").remove();
+      $("body").removeClass();
+      $("body").removeAttr("style");
+      this.file_selected = null;
+}
   
 
 }

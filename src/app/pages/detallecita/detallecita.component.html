@@ -84,19 +84,43 @@
                     <b>Archivos de Laboratorio</b> <br>
                 </p>
                 <ng-container *ngFor="let FILE of FilesAdded">
-                    <div class="">
+                    <div class="filesAdded">
                         <!--begin::Wrapper-->
                         <div class="files">
+                           <a  href="javascript:void(0);" (click)="selectDoc(FILE)" data-bs-toggle="modal" [attr.data-bs-target]="'#view-doc-'+FILE.id">
                             <img src="assets/svg/doc.svg" class="w-50px ms-n1 me-1 filesvg" alt="">
-                            <a [href]="FILE.file" target="_blank" class="text-gray-800 text-hover-primary fw-bolder tititle">{{FILE.name_file}}</a>
-                            <br>
-                            <span class="text-gray-400 fw-bolder sizeee">Size:
-                            <a href="#" onclick="return false;" class="text-gray-800 text-hover-primary fw-bolder">{{FILE.size}} Kb.</a></span>
-                                
+                           </a>
+                            <div class="infofile">
+                               <a  href="javascript:void(0);" (click)="selectDoc(FILE)"  data-bs-toggle="modal" [attr.data-bs-target]="'#view-doc-'+FILE.id" >
+                                   {{FILE.name_file}}</a>
+                                   <br>
+                                   <span class="text-gray-400 fw-bolder sizeee">Size:
+                                   <a href="#" onclick="return false;" class="text-gray-800 text-hover-primary fw-bolder">{{FILE.size}} Kb.</a></span>
+                               </div> 
                         </div>
                         <!--end::Wrapper-->
                     </div>
                     <!--end::Info-->
+                    <!-- modal -->
+
+                    <div class="modal fade" [attr.id]="'view-doc-'+FILE.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog modal-lg">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <h5 class="modal-title" id="exampleModalLabel">{{FILE.name_file}}</h5>
+                             <!-- <button type="button" class="btn btn-danger close" data-dismiss="modal" (click)="closeModalDoc()" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                             </button> -->
+
+                           </div>
+                           <div class="modal-body">
+                               <embed [src]="getDocumentIframe(FILE.file)" class="pdf-content"/>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+
+                       <!-- modal -->
                 </ng-container>
                 
             </div>
