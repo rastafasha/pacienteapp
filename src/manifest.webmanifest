@@ -1,7 +1,7 @@
 {
   "dir": "ltr",
-  "name": "Health Connect",
-  "short_name": "Health Connect",
+  "name": "D-Admin Health Connect",
+  "short_name": "D-Admin Health Connect",
   "theme_color": "#513081",
   "description": "App to connect health clinics and patients.",
   "display": "standalone",
