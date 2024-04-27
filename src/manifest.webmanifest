@@ -1,7 +1,7 @@
 {
   "dir": "ltr",
-  "name": "D-Admin Health Connect",
-  "short_name": "D-Admin Health Connect",
+  "name": "Health Connect | Clínica Santiago de Leon",
+  "short_name": "Health Connect | Clínica Santiago de Leon",
   "theme_color": "#513081",
   "description": "App to connect health clinics and patients.",
   "display": "standalone",
