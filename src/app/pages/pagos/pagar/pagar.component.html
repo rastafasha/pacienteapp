@@ -94,10 +94,10 @@
                                                     <div class="form-group ">
                                                         <label for="">Tipo De pago </label>
                                                         <br>
-                                                        <div class="form-check chickd"    >
+                                                        <!-- <div class="form-check chickd"    >
                                                             <input class="form-check-input" formControlName="metodo" [checked]="metodo == 'paypal'" (click)="selectedTypeCoupon('paypal')"  type="radio" value="Paypal" id="radiotipo1">
                                                             <label class="form-check-label" for="radiotipo1">Paypal</label>
-                                                        </div>
+                                                        </div> -->
                                                         <div class="form-check chickd"  >
                                                             <input class="form-check-input" formControlName="metodo"  [checked]="metodo == 'zelle'" (click)="selectedTypeCoupon('zelle')"   type="radio" value="Zelle" id="radiotipo2">
                                                             <label class="form-check-label" for="radiotipo2">Zelle</label>
@@ -113,12 +113,12 @@
                                                     </div>
                                                 </div>
                                                
-                                                <div *ngIf="metodo == 'paypal'" class="divpaypal">
+                                                <!-- <div *ngIf="metodo == 'paypal'" class="divpaypal">
                                                     <button routerLink="/dashboard/planes/all" class="button btn btn-outline-success btn-paypal">
                                                         <i class="fa fa-paypal"></i>
                                                         Pagar por Paypal
                                                     </button>
-                                                </div>
+                                                </div> -->
                                                 <div class="divform" *ngIf="metodo == 'zelle'|| metodo == 'transferencia'|| metodo == 'pagomovil'|| metodo == 'efectivo'">
                                                     <div class="div2">
                                                         <div class="form-group ">
