@@ -12,10 +12,10 @@ export const environment = {
   // url_media: 'https://citasmedicasv1.malcolmcordova.com/backend-api-citas/storage/app/public/',
 
   //remoto cliente trial
-  url_backend: 'https://csdleondeccs.malcolmcordova.com/backend-api-citas/',
-  url_servicios: 'https://csdleondeccs.malcolmcordova.com/backend-api-citas/public/api',
-  url_frontend: 'https://pacsdleondeccs.malcolmcordova.com/',
-  url_media: 'https://csdleondeccs.malcolmcordova.com/backend-api-citas/storage/app/public/',
+  url_backend: 'https://csdleondeccs.health-connect.me/backend-api-citas/',
+    url_servicios: 'https://csdleondeccs.health-connect.me/backend-api-citas/public/api',
+    url_frontend: 'https://pacsdleondeccs.health-connect.me/',
+    url_media: 'https://csdleondeccs.health-connect.me/backend-api-citas/storage/app/public/',
 
   //remoto demo  dominio
   // url_backend: 'https://clinica.health-connect.me/backend-api-citas/',
