@@ -31,7 +31,7 @@
                                 [attr.data-bs-target]="'#view-doc-'+FILE.id">
                                 {{FILE.name_file}}</a>
                             <br>
-                            <span class="text-gray-400 fw-bolder sizeee">Size:
+                            <span class="text-gray-400 fw-bolder sizeee">Peso:
                                 <a href="#" onclick="return false;"
                                     class="text-gray-800 text-hover-primary fw-bolder">{{FILE.size}} Kb.</a></span>
                         </div>
@@ -45,9 +45,10 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{{FILE.name_file}}</h5>
-                                <a href="javascript:void(0);" (click)="closeReload()" class="btn btn-white me-1"
-                                    data-bs-dismiss="modal">Close</a>
+                                <p class="modal-title" id="exampleModalLabel">{{FILE.name_file}}</p>
+                                <!-- (click)="closeReload()" -->
+                                <a href="javascript:void(0);"  class="btn btn-white me-1"
+                                    data-bs-dismiss="modal">Cerrar</a>
                             </div>
                             <div class="modal-body text-center">
                                 <embed [src]="getDocumentIframe(FILE.file)" class="pdf-content" />
