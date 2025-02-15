@@ -40,9 +40,9 @@ export class HeaderComponent implements OnInit {
   getInfoUser(){
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
       // console.log('todo',resp);
-      this.patient = resp.patient.data[0];
+      this.patient = resp.patient;
       // console.log('patient', this.patient);
-      this.user = resp.user.data[0];
+      this.user = resp.user;
       // console.log('user', this.user);
       // console.log('patient', this.patient);
       // this.usuario = resp;

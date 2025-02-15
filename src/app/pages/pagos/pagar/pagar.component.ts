@@ -9,6 +9,7 @@ import { PaymentMethodService } from 'src/app/services/paymentMethod.service';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pagar',
@@ -18,6 +19,7 @@ import { UserService } from 'src/app/services/user.service';
 export class PagarComponent implements OnInit {
   public PaymentRegisterForm: FormGroup;
   public cargando: boolean = true;
+  public cargandoPago: boolean = true;
 
   metodo:string;
   usuario:User;
@@ -111,10 +113,14 @@ getInfoCita(){
       patient_id: this.patient_id,
       appointment_id: this.appointment_id,
     }
+    this.cargandoPago = true;
+    Swal.fire('Procesando', `procesando Pago`, 'warning');
     this.paymentService.create(data)
     .subscribe( (resp: any) =>{
-      this.router.navigateByUrl(`/app/mis-pagos`);
       this.pagoSeleccionado = resp;
+      this.cargandoPago = false;
+      Swal.fire('Exito!', `La Cita medica se ha creado, favor espere la verificacion de  el pago`, 'success');
+      this.router.navigateByUrl(`/app/mis-pagos`);
       // console.log(this.pagoSeleccionado);
       // this.emptyCart();
     })

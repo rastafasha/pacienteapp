@@ -1,13 +1,8 @@
 <div class="row animated fadeIn fast" *ngIf="cargando">
-    <div class="col-12">
-        <div class="alert alert-info text-center">
-            <div class="alert-heading">Cargando</div>
-            <i class="fa fa-spin fa-refresh fa-1x"></i>
-            <p class="mb-0">Por favor espere</p>
-        </div>
-    </div>
+    <app-loading ></app-loading>
 </div>
 <div *ngIf="!cargando" class="container animated fadeInUp" style="padding-top: 20px;">
+    <app-backButtn></app-backButtn>
     <div class="row">
         <div class="col-12">
             <div class="card recibo">
@@ -114,6 +109,19 @@
                                                 </div>
                                                
                                                 <div class="divform" *ngIf="metodo == 'Transferencia Dólares'|| metodo == 'Transferencia Bolívares'">
+
+                                                    <!-- <div class="datos"*ngFor="let pago of paymentMethods; let id = index">
+                                                        <p><b>{{pago.tipo | uppercase}}</b></p>
+                                                        <div class="clear"></div>
+                                                        <p><b>Método:</b> {{pago.tipo}}</p>
+                                                        <p *ngIf="pago.email"><b>Correo:</b> {{pago.email}}</p>
+                                                        <p *ngIf="pago.bankName"><b>Banco:</b> {{pago.bankName}}</p>
+                                                        <p *ngIf="pago.bankAccount"><b>No.Cuenta:</b> {{pago.bankAccount}}</p>
+                                                        <p *ngIf="pago.bankAccountType"><b>Tipo de Cuenta:</b> {{pago.bankAccountType}}</p>
+                                                        <p *ngIf="pago.ciorif"><b>No.Cuenta o Rif:</b> {{pago.ciorif}}</p>
+                                                        <p *ngIf="pago.telefono"><b>Teléfono:</b> {{pago.telefono}}</p>
+                                                        <p><b>Requerido:</b> referencia y/o foto</p>
+                                                    </div> -->
                                                     <div class="div2">
                                                         <div class="form-group ">
                                                             <label for="">Nombre Banco </label>

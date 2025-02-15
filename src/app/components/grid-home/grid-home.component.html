@@ -1,4 +1,4 @@
-<div *ngIf="!patient">
+<div *ngIf="!usuario">
     <h2 class="notiene">Usted no tiene registro medico con esta Clínica.</h2>
 </div>
 <!-- <div class="row animated fadeIn fast" *ngIf="cargando">
@@ -43,25 +43,25 @@
                 
                 <div class="perfil-home">
                     <div class="fotoPerfil">
-                        <img [src]="patient.avatar" alt="">
+                        <img [src]="usuario.avatar" alt="">
                     </div>
                     <div class="datospaciente">
                         <h5>Hola!,</h5>
-                        <h3 style="font-size: 16px;">{{patient.full_name}}</h3>
-                        <p><b>Id</b> {{patient.n_doc}}</p>
-                        <p><b>Teléfono:</b> {{patient.phone}}</p>
+                        <h3 style="font-size: 16px;">{{usuario.full_name}}</h3>
+                        <p><b>Id</b> {{usuario.n_doc}}</p>
+                        <p><b>Teléfono:</b> {{usuario.phone}}</p>
                         <div class="oculto">
                         <!-- <p><b>Responsable:</b> <br>
-                            {{patient.person.name_responsable}}
+                            {{usuario.person.name_responsable}}
                         </p> -->
                         <p><b>Atnt. Alergico:</b> <br>
-                            {{patient.antecedent_alerg}}
+                            {{usuario.antecedent_alerg}}
                         </p>
                         <p><b>Atnt. Personal:</b> <br>
-                            {{patient.antecedent_personal}}
+                            {{usuario.antecedent_personal}}
                         </p>
                         <p><b>Atnt. Familiar:</b> <br>
-                            {{patient.antecedent_family}}
+                            {{usuario.antecedent_family}}
                         </p>
                         
                         </div>

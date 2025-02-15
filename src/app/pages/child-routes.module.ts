@@ -29,6 +29,9 @@ const childRoutes: Routes = [
       path:'agendar-cita', component:AddAppointmentsComponent
     },
     {
+      path:'solicitar-cita', component:AddAppointmentsComponent
+    },
+    {
       path:'perfil-doctor/:id', component:DoctorProfileComponent
     },
     {

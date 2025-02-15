@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 export class AgendarCitaComponent implements OnInit {
 
   public selectedValue!: string;
+  public cargando: boolean = true;
+  public cargandoPago: boolean = true;
 
   valid_form_success: boolean = false;
   public text_validation:string = '';
@@ -58,10 +60,12 @@ export class AgendarCitaComponent implements OnInit {
   ngOnInit(): void {
     // this.doctorService.closeMenuSidebar();
     window.scrollTo(0, 0);
+    this.cargando = true;
 
     this.activatedRoute.params.subscribe((resp:any)=>{
       // console.log(resp);
       this.specilityie_id = resp.id;
+      this.cargando = false;
       
     });
     this.getPrice();

@@ -41,6 +41,7 @@ export class AddAppointmentsComponent {
   DOCTOR_SELECTED:any;
 
   selected_segment_hour:any;
+  cargando:boolean= false;
 
   
 
@@ -56,8 +57,9 @@ export class AddAppointmentsComponent {
   ngOnInit(): void {
     this.authService.closeMenu();
     window.scrollTo(0, 0); 
-
+    this.cargando = true;
     this.appointmentService.listConfig().subscribe((resp:any)=>{
+      this.cargando = false;
       this.hours = resp.hours;
       this.specialities = resp.specialities;
     })

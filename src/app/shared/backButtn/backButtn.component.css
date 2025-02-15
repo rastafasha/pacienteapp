@@ -1,0 +1,6 @@
+.back{
+    display: flex;
+}
+.back i{
+    padding-right: 5px;
+}

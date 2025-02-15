@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of, delay } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,12 +13,14 @@ export class ListaComponent implements OnInit {
 
   public cargando: boolean = true;
 
+  @Input() usuario:any=[]; //recibe la data
+
   option_selected:number = 1;
 
   patient:any;
   
   user:any;
-  usuario:any;
+  // usuario:any;
   patient_id:any;
   appointments:any;
   num_appointment:any;
@@ -50,11 +52,11 @@ export class ListaComponent implements OnInit {
 
   getInfoUser(){
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
-      // console.log(resp);
-      this.patient = resp.patient.data;
+      console.log(resp);
+      this.patient = resp.patient;
       // console.log('patient', this.patient);
       this.usuario = resp;
-      this.patient_id = resp.patient.data[0].id;
+      this.patient_id = resp.patient.id;
       // console.log(this.patient_id);
       
       this.getPatient();

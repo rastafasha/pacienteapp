@@ -54,18 +54,12 @@ export class HomeComponent implements OnInit {
       this.patient = resp.patient.data;
       // console.log('patient', this.patient);
       this.usuario = resp;
-      this.patient_id = resp.patient.data[0].id;
+      this.patient_id = resp.patient.id;
       // console.log(this.patient_id);
       
-      this.getPatient();
+      // this.getPatient();
     })
   }
 
-  getPatient(){
-    this.userService.showPatientProfile(this.patient_id).subscribe((resp:any)=>{
-      // console.log(resp);
-      this.patient_selected= resp.patient;
-    })
-  }
 
 }

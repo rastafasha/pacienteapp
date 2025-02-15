@@ -1,11 +1,5 @@
 <div class="row animated fadeIn fast" *ngIf="cargando">
-    <div class="col-12">
-        <div class="alert alert-info text-center">
-            <div class="alert-heading">Cargando</div>
-            <i class="fa fa-spin fa-refresh fa-1x"></i>
-            <p class="mb-0">Por favor espere</p>
-        </div>
-    </div>
+    <app-loading ></app-loading>
 </div>
 
 <div *ngIf="!cargando">
@@ -45,16 +39,20 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <p class="modal-title" id="exampleModalLabel">{{FILE.name_file}}</p>
-                                <!-- (click)="closeReload()" -->
                                 <a href="javascript:void(0);"  class="btn btn-white me-1"
                                     data-bs-dismiss="modal">Cerrar</a>
+                                <p class="modal-title" id="exampleModalLabel">{{FILE.name_file}}</p>
+                                <!-- (click)="closeReload()" -->
                             </div>
                             <div class="modal-body text-center">
-                                <embed [src]="getDocumentIframe(FILE.file)" class="pdf-content" />
-                                <!-- <div class="m-t-20"> 
-                                                                        <a href="javascript:void(0);" (click)="closeReload()" class="btn btn-white me-1" data-bs-dismiss="modal">Close</a>
-                                                                    </div> -->
+                                <!-- *ngIf="FILE.type === 'png' || FILE.type === 'jpg'" -->
+                                <span >
+                                    <img [src]="FILE.file" style="width: 100%;" alt="">
+                                </span>
+                                <!-- <span *ngIf="file_selected.type === 'pdf'">
+                                    <embed [src]="getDocumentIframe(FILE.file)"  class="pdf-content"/>
+                                </span> -->
+                                
                             </div>
                         </div>
                     </div>

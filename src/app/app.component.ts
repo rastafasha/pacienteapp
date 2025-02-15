@@ -24,6 +24,9 @@ export class AppComponent {
     this.modalVersion = false;
   }
 
+
+  
+
   public ngOnInit(): void {
     this.updateOnlineStatus();
 

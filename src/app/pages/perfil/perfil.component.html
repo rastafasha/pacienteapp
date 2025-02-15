@@ -1,3 +1,6 @@
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <app-loading ></app-loading>
+</div>
 
 <div *ngIf="obs$ | async as obs; else loading" >
     <div *ngIf="!patient">
@@ -7,6 +10,7 @@
     <section class="container animated fadeInUp " style=" padding-top: 30px; padding-bottom: 50px;" *ngIf="patient">
         
         <div class="perfil" >
+            <app-backButtn></app-backButtn>
                     
             
             <div class="local_categoria_item" style="height: 220px;">

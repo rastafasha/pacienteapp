@@ -1,5 +1,8 @@
+<div class="row animated fadeIn fast" *ngIf="cargando">
+    <app-loading ></app-loading>
+</div>
 <!-- <app-categorias></app-categorias> -->
-<div class="container animated fadeInUp" style="padding-top: 20px;">
+<div class="container animated fadeInUp" *ngIf="!cargando" style="padding-top: 20px;">
     
     <div class="row">
         <!-- paciente -->
@@ -38,7 +41,7 @@
                                 <div class="col-12 col-md-6 col-xl-3">
                                     <div class="form-group local-forms">
                                         <label >Especialidad <span class="login-danger">*</span></label>
-                                        <p>{{speciality.name}} | {{speciality.price|currency}}</p>
+                                        <p>{{speciality.name}} </p>
                                     </div>
                                 </div>
                             </div>
