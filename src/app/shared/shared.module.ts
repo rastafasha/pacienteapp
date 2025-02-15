@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PwaNotifInstallerComponent } from './pwa-notif-installer/pwa-notif-installer.component';
 import { LoadingComponent } from './loading/loading.component';
 import { BackButtnComponent } from './backButtn/backButtn.component';
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 
 
 
@@ -15,14 +16,16 @@ import { BackButtnComponent } from './backButtn/backButtn.component';
     HeaderComponent,
     PwaNotifInstallerComponent,
     LoadingComponent,
-    BackButtnComponent
+    BackButtnComponent,
+    SkeletonLoaderComponent
   ],
   exports: [
     FooterComponent,
     HeaderComponent,
     PwaNotifInstallerComponent,
     LoadingComponent,
-    BackButtnComponent
+    BackButtnComponent,
+    SkeletonLoaderComponent
   ],
   imports: [
     CommonModule,

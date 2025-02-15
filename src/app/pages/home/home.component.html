@@ -1,8 +1,11 @@
-<div class="row animated fadeIn fast" *ngIf="cargando">
+<!-- <div class="row animated fadeIn fast" *ngIf="cargando">
     <app-loading ></app-loading>
-</div>
+</div> -->
 
-<div class="col-12" *ngIf="!cargando">
+<app-skeleton-loader *ngIf="isLoading" [rows]="5" [columns]="3"></app-skeleton-loader>
+        
+
+<div class="col-12" *ngIf="!isLoading">
     <!-- grid_home -->
     <app-grid-home [usuario]="usuario"></app-grid-home>
     <!-- grid_home -->

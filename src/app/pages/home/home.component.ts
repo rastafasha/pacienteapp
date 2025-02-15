@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HomeComponent implements OnInit {
   // @Input() usuario:any;
-  public cargando: boolean = true;
+  public isLoading: boolean = true;
   
   
   user:any;
@@ -47,9 +47,9 @@ export class HomeComponent implements OnInit {
   
 
   getInfoUser(){
-    this.cargando = true;
+    this.isLoading = true;
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
-      this.cargando = false;
+      this.isLoading = false;
       // console.log(resp);
       this.patient = resp.patient.data;
       // console.log('patient', this.patient);
