@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agendar-cita',
@@ -43,8 +44,10 @@ export class AgendarCitaComponent implements OnInit {
   DOCTORS:any = [];
   DOCTOR:any = [];
   DOCTOR_SELECTED:any;
+  user:any;
 
   selected_segment_hour:any;
+  patient_selected:any;
 
   
 
@@ -53,7 +56,10 @@ export class AgendarCitaComponent implements OnInit {
     // public doctorService:DoctorService,
     public router: Router,
     public activatedRoute: ActivatedRoute,
+    public userService:UserService,
+    public authService:AuthService,
   ){
+    this.user = this.authService.user;
 
   }
 
@@ -61,7 +67,6 @@ export class AgendarCitaComponent implements OnInit {
     // this.doctorService.closeMenuSidebar();
     window.scrollTo(0, 0);
     this.cargando = true;
-
     this.activatedRoute.params.subscribe((resp:any)=>{
       // console.log(resp);
       this.specilityie_id = resp.id;
@@ -73,7 +78,13 @@ export class AgendarCitaComponent implements OnInit {
       this.hours = resp.hours;
       this.specialities = resp.specialities;
     })
+
+    this.user;
+    console.log(this.user);
+    this.getInfoUser();
+    
   }
+  
 
   getPrice(){
     this.appointmentService.showSpeciality(this.specilityie_id).subscribe((resp:any)=>{
@@ -82,6 +93,13 @@ export class AgendarCitaComponent implements OnInit {
       
     })
 
+  }
+
+  getInfoUser(){
+    this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
+      this.patient_selected = resp.patient;
+      this.filterPatient();
+    })
   }
   
   filtro(){
@@ -110,12 +128,9 @@ export class AgendarCitaComponent implements OnInit {
     this.selected_segment_hour = SEGMENT;
   }
 
-  precioCita(){
-
-  }
 
   filterPatient(){
-    this.appointmentService.getPatient(this.n_doc+"").subscribe((resp:any)=>{
+    this.appointmentService.getPatient(this.patient_selected.n_doc+"").subscribe((resp:any)=>{
       // console.log(resp);
       this.patient = resp;
       if(resp.menssage === 403){
@@ -131,6 +146,23 @@ export class AgendarCitaComponent implements OnInit {
       }
     })
   }
+  // filterPatient(){
+  //   this.appointmentService.getPatient(this.n_doc+"").subscribe((resp:any)=>{
+  //     // console.log(resp);
+  //     this.patient = resp;
+  //     if(resp.menssage === 403){
+  //       this.name= '';
+  //       this.surname= '';
+  //       this.phone= '';
+  //       this.n_doc= 0;
+  //     }else{
+  //       this.name= resp.name;
+  //       this.surname= resp.surname;
+  //       this.phone= resp.phone;
+  //       this.n_doc= resp.n_doc;
+  //     }
+  //   })
+  // }
 
   resetPatient(){
     this.name= '';
@@ -175,10 +207,11 @@ export class AgendarCitaComponent implements OnInit {
         // amount_add:this.amount_add,
         // method_payment:this.method_payment,
       }
-
+      this.cargando = true;
     this.appointmentService.storeAppointment(data).subscribe((resp:any)=>{
       // console.log(resp);
       // this.text_success = "La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago";
+      this.cargando = false;
       Swal.fire('Exito!', `La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago`, 'success');
       this.router.navigate(['/app/lista']);
     })

@@ -41,7 +41,7 @@
                                 <div class="col-12 col-md-6 col-xl-3">
                                     <div class="form-group local-forms">
                                         <label >Especialidad <span class="login-danger">*</span></label>
-                                        <p>{{speciality.name}} </p>
+                                        <p>{{speciality?.name}} | {{speciality?.price |currency}} </p>
                                     </div>
                                 </div>
                             </div>
@@ -123,33 +123,33 @@
                         <div class="row align-items-center py-4" >
                             <div class="col-12 py-4">
                                 <h4>Datos del Paciente</h4>
-                                <button type="button" class="btn btn-dark btn-sm" (click)="resetPatient()">Reset</button>
+                                <!-- <button type="button" class="btn btn-dark btn-sm" (click)="resetPatient()">Reset</button> -->
                             </div>
                             <div class="col-12 col-md-6 col-xl-4">
                                 <div class="form-group local-forms">
                                     <label >N.Documento <span class="login-danger">*</span></label>
                                     <input class="form-control" name="n_doc" [(ngModel)]="n_doc" type="text"  >
                                     <!-- <input class="form-control" (keyup)="filterPatient()" name="n_doc" [(ngModel)]="n_doc" type="text"  > -->
-                                    <button type="button" class="btn btn-dark btn-sm" (click)="filterPatient()">Filtrar</button>
+                                    <!-- <button type="button" class="btn btn-dark btn-sm" (click)="filterPatient()">Filtrar</button> -->
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-xl-4">  
                                 <div class="form-group local-forms">
                                     <label >First Name <span class="login-danger">*</span></label>
-                                    <input class="form-control" name="name" [(ngModel)]="name" type="text"  >
+                                    <input class="form-control" name="name"  disabled [(ngModel)]="name" type="text"  >
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-xl-4">
                                 <div class="form-group local-forms">
                                     <label >Last Name <span class="login-danger">*</span></label>
-                                    <input class="form-control" name="surname" [(ngModel)]="surname" type="text"  >
+                                    <input class="form-control" name="surname" disabled  [(ngModel)]="surname" type="text"  >
                                 </div>
                             </div>
                            
                             <div class="col-12 col-md-6 col-xl-4">
                                 <div class="form-group local-forms">
                                     <label >Mobile <span class="login-danger">*</span></label>
-                                    <input class="form-control" name="phone" [(ngModel)]="phone" type="text"  >
+                                    <input class="form-control" name="phone"  disabled [(ngModel)]="phone" type="text"  >
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-xl-3">  
