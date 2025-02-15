@@ -7,6 +7,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { PublicidadComponent } from './publicidad/publicidad.component';
 import { CitasComponent } from './citas/citas.component';
 import { SignosvitalesComponent } from './signosvitales/signosvitales.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -28,7 +29,8 @@ import { SignosvitalesComponent } from './signosvitales/signosvitales.component'
   imports: [
     CommonModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }

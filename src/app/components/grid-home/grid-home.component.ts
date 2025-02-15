@@ -48,10 +48,9 @@ export class GridHomeComponent implements OnInit {
     this.authService.getLocalStorage();
     this.authService.closeMenu();
     this.getConfig();
-    this.getPatient();
     
     this.usuario = this.usuario.patient;
-    // console.log(this.usuario);
+    this.getPatient();
     
   }
 
@@ -64,18 +63,20 @@ export class GridHomeComponent implements OnInit {
 
   getPatient(){
     this.userService.showPatientProfile(this.usuario.id).subscribe((resp:any)=>{
-      // console.log('todo appointment',resp);
+      console.log(resp);
       this.patient_selected= resp.patient;
       this.appointments= resp.appointments;
-      // this.appointment_checkeds= resp.appointment_checkeds.data[0];
-      // console.log(this.appointment_checkeds);
+      this.appointment_checkeds= resp.appointment_checkeds.data[0];
       this.appointment_pendings= resp.appointment_pendings.data;
       this.appointment_attention= resp.appointments[0].appointment_attention;
 
       if(resp.appointments[0].appointment_attention){
         this.recetas= resp.appointments[0].appointment_attention.receta_medica;
       }
-      this.appointment= resp.appointments[0];
+      if(this.appointment_checkeds.status === 2 ){
+        this.appointment_checkeds;
+      }
+      this.appointment= resp.appointments;
       
     })
   }

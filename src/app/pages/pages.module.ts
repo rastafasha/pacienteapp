@@ -18,6 +18,7 @@ import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
 import { PagarComponent } from './pagos/pagar/pagar.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { LegalComponent } from './legal/legal.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { LegalComponent } from './legal/legal.component';
     SharedModule,
     ComponentsModule,
     PagesRoutingModule,
+    PipesModule
     
     
   ],

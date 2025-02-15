@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArrayFilterPipe } from './array-filter.pipe';
+import { FilterAppointmentDatePipe } from './filter-appointment-date.pipe';
 
 
 
 @NgModule({
   declarations: [
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    FilterAppointmentDatePipe
 
   ],
   exports: [
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    FilterAppointmentDatePipe
 
   ],
   imports: [
