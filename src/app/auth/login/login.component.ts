@@ -38,11 +38,12 @@ export class LoginComponent implements OnInit {
   public formSumitted = false;
   public registerForm = this.fb.group({
     name: ['', Validators.required],
+    surname: ['', Validators.required],
     email: [ '', [Validators.required] ],
     n_doc: ['', Validators.required],
     password: ['', Validators.required],
     password2: ['', Validators.required],
-    // role: ['GUEST'],
+    role: ['GUEST'],
     // terminos: [false, Validators.required],
 
   }, {
@@ -79,8 +80,9 @@ ngOnInit(){
 
 
 
-login(){
+login(){ 
   if(!this.loginForm){
+    Swal.fire('Error', 'Favor ingresar datos', 'error');
     return;
   }
 
@@ -106,8 +108,9 @@ login(){
       }
       
     },(error) => {
-      Swal.fire('Error', error.error, 'error');
-      this.errors = error.error;
+      Swal.fire('Error', error.error.msg, 'error');
+      this.errors = error.error.msg;
+      document.location.reload();
     }
     )
     // console.log(this.user)
@@ -125,10 +128,10 @@ crearUsuario(){
 
   this.authService.crearUsuario(this.registerForm.value).subscribe(
     resp =>{
-      // Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
+      Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
       this.ngOnInit();
     },(error) => {
-      // Swal.fire('Error', error.error.msg, 'error');
+      Swal.fire('Error', error.error.msg, 'error');
       this.errors = error.error;
     }
   );

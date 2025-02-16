@@ -41,6 +41,9 @@ export class SignosvitalesComponent implements OnInit {
     // this.getInfoUser();
     this.usuario = this.usuario.patient;
 
+    if(this.usuario === null || !this.usuario){
+      this.usuario = this.authService.user;
+    }
     
   }
   

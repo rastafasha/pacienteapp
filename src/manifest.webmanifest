@@ -1,7 +1,7 @@
 {
   "dir": "ltr",
-  "name": "Health Connect | SOLUMEDICA",
-  "short_name": "Health Connect | SOLUMEDICA",
+  "name": "Health Connect | DEMO",
+  "short_name": "Health Connect | DEMO",
   "theme_color": "#513081",
   "description": "App to connect health clinics and patients.",
   "display": "standalone",

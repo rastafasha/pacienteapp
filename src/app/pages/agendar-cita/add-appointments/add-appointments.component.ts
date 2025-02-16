@@ -46,6 +46,7 @@ export class AddAppointmentsComponent {
 
   user:any;
   patient_selected:any;
+  nuevo_usuario:any;
 
   constructor(
     public appointmentService:AppointmentService,
@@ -59,6 +60,7 @@ export class AddAppointmentsComponent {
 
   ngOnInit(): void {
     this.authService.closeMenu();
+    this.authService.getLocalStorage();
     window.scrollTo(0, 0); 
     this.cargando = true;
     this.appointmentService.listConfig().subscribe((resp:any)=>{
@@ -67,7 +69,9 @@ export class AddAppointmentsComponent {
       this.specialities = resp.specialities;
     })
 
-    // this.user;
+    this.user;
+    console.log(this.user);
+    
     this.getInfoUser();
   }
 

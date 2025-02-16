@@ -131,8 +131,58 @@
                         <!-- validaciones -->
                         </div>
                         <!-- disponibilidad -->
+                        <!-- paciente Nuevo -->
+                        <div class="row align-items-center py-4" *ngIf="!patient_selected" >
+                            <div class="col-12 py-4">
+                                <h4>Datos del Paciente</h4>
+                                <button type="button" class="btn btn-dark btn-sm" (click)="resetPatient()">Reset</button>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group local-forms">
+                                    <label >N.Documento <span class="login-danger">*</span></label>
+                                    <input class="form-control" name="n_doc"  [(ngModel)]="n_doc" type="text"  >
+                                    <!-- <input class="form-control" (keyup)="filterPatient()" name="n_doc" [(ngModel)]="n_doc" type="text"  > -->
+                                    <button type="button" class="btn btn-dark btn-sm" (click)="filterPatient()">Filtrar</button>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl-4">  
+                                <div class="form-group local-forms">
+                                    <label >Nombre <span class="login-danger">*</span></label>
+                                    <input class="form-control" name="name"  [(ngModel)]="name" type="text"  >
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group local-forms">
+                                    <label >Apellido <span class="login-danger">*</span></label>
+                                    <input class="form-control" name="surname"  [(ngModel)]="surname" type="text"  >
+                                </div>
+                            </div>
+                           
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="form-group local-forms">
+                                    <label >Teléfono <span class="login-danger">*</span></label>
+                                    <input class="form-control" name="phone"  [(ngModel)]="phone" type="text"  >
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl-3">  
+                                <div class="form-group local-forms">
+                                    <label >Nombre Acompañante <span class="login-danger">*</span></label>
+                                    <input class="form-control" name="name_companion" [(ngModel)]="name_companion" type="text"  >
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl-3">  
+                                <div class="form-group local-forms">
+                                    <label >Apellido Acompañante <span class="login-danger">*</span></label>
+                                    <input class="form-control" name="surname_companion" [(ngModel)]="surname_companion" type="text"  >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- paciente Nuevo -->
+
+
+
                         <!-- paciente -->
-                        <div class="row align-items-center py-4" >
+                        <div class="row align-items-center py-4" *ngIf="patient_selected" >
                             <div class="col-12 py-4">
                                 <h4>Datos del Paciente</h4>
                                 <!-- <button type="button" class="btn btn-dark btn-sm" (click)="resetPatient()">Reset</button> -->
@@ -140,7 +190,7 @@
                             <div class="col-12 col-md-6 col-xl-4">
                                 <div class="form-group local-forms">
                                     <label >N.Documento <span class="login-danger">*</span></label>
-                                    <input class="form-control" name="n_doc" disabled [(ngModel)]="n_doc" type="text"  >
+                                    <input class="form-control" name="n_doc"  [(ngModel)]="n_doc" type="text"  >
                                     <!-- <input class="form-control" (keyup)="filterPatient()" name="n_doc" [(ngModel)]="n_doc" type="text"  > -->
                                     <!-- <button type="button" class="btn btn-dark btn-sm" (click)="filterPatient()">Filtrar</button> -->
                                 </div>

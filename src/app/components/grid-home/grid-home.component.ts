@@ -50,6 +50,10 @@ export class GridHomeComponent implements OnInit {
     this.getConfig();
     
     this.usuario = this.usuario.patient;
+
+    if(this.usuario === null || !this.usuario){
+      this.usuario = this.authService.user;
+    }
     this.getPatient();
     
   }

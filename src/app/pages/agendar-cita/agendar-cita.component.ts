@@ -79,9 +79,13 @@ export class AgendarCitaComponent implements OnInit {
       this.specialities = resp.specialities;
     })
 
-    this.user;
+    // this.user;
+    
+    if(this.user === null || !this.user){
+      this.user = this.authService.user;
+      this.getInfoUser();
+    }
     console.log(this.user);
-    this.getInfoUser();
     
   }
   
@@ -111,6 +115,7 @@ export class AgendarCitaComponent implements OnInit {
     this.appointmentService.lisFiter(data).subscribe((resp:any)=>{
       // console.log(resp);
       this.DOCTORS = resp.doctors;
+      
     })
   }
 
@@ -146,23 +151,23 @@ export class AgendarCitaComponent implements OnInit {
       }
     })
   }
-  // filterPatient(){
-  //   this.appointmentService.getPatient(this.n_doc+"").subscribe((resp:any)=>{
-  //     // console.log(resp);
-  //     this.patient = resp;
-  //     if(resp.menssage === 403){
-  //       this.name= '';
-  //       this.surname= '';
-  //       this.phone= '';
-  //       this.n_doc= 0;
-  //     }else{
-  //       this.name= resp.name;
-  //       this.surname= resp.surname;
-  //       this.phone= resp.phone;
-  //       this.n_doc= resp.n_doc;
-  //     }
-  //   })
-  // }
+  filterPatientNew(){
+    this.appointmentService.getPatient(this.n_doc+"").subscribe((resp:any)=>{
+      // console.log(resp);
+      this.patient = resp;
+      if(resp.menssage === 403){
+        this.name= '';
+        this.surname= '';
+        this.phone= '';
+        this.n_doc= 0;
+      }else{
+        this.name= resp.name;
+        this.surname= resp.surname;
+        this.phone= resp.phone;
+        this.n_doc= resp.n_doc;
+      }
+    })
+  }
 
   resetPatient(){
     this.name= '';
@@ -194,6 +199,7 @@ export class AgendarCitaComponent implements OnInit {
         name: this.name,
         surname: this.surname,
         n_doc: this.n_doc,
+        email:this.user.email,
         phone: this.phone,
         name_companion: this.name_companion,
         surname_companion: this.surname_companion,
@@ -211,9 +217,33 @@ export class AgendarCitaComponent implements OnInit {
     this.appointmentService.storeAppointment(data).subscribe((resp:any)=>{
       // console.log(resp);
       // this.text_success = "La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago";
-      this.cargando = false;
-      Swal.fire('Exito!', `La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago`, 'success');
-      this.router.navigate(['/app/lista']);
+      // this.cargando = false;
+      // Swal.fire('Exito!', `La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago`, 'success');
+      // this.router.navigate(['/app/lista']);
+
+      if(resp.message == 403){
+        // Swal.fire('Actualizado', this.text_validation, 'success');
+        this.text_validation = resp.message_text;
+        Swal.fire({
+          position: "top-end",
+          icon: "warning",
+          title: this.text_validation,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }else{
+        // Swal.fire('Actualizado', this.text_success, 'success' );
+        // this.text_success = 'La Cita medica se ha creado, favor espere la verificacion de  el pago';
+        this.text_success = 'Se envio la solicitud de la cita médica'
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: this.text_success,
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigate(['/app/lista']);
+    }
     })
   }
 

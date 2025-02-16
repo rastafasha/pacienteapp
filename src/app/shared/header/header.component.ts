@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   user:any;
   patient:any = [];
   usuario:any = [];
+  nuevo_usuario:any = [];
   public settings:any;
   public setting_selectedId:any;
   public avatar_setting:any;
@@ -35,6 +36,13 @@ export class HeaderComponent implements OnInit {
     this.getInfoUser()
     this.getSettings()
     this.authService.getLocalDarkMode();
+
+
+    this.user = this.user.patient;
+
+    if(this.user === null || !this.user){
+      this.user = this.authService.user;
+    }
   }
 
   getInfoUser(){
