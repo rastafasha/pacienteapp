@@ -1,10 +1,13 @@
 <div class="row animated fadeIn fast" *ngIf="cargando">
     <app-loading ></app-loading>
 </div>
+<div *ngIf="!patient">
+    <h2 class="notiene">Usted no tiene Registro medico con esta Clínica.</h2>
+</div>
 <app-backButtn></app-backButtn>
 <div  *ngIf="!cargando">
     <div *ngIf="!patient">
-        <h2 class="notiene">Usted no tiene registro medico con esta Clínica.</h2>
+        <h2 class="notiene">Usted no tiene Citas activas con esta Clínica.</h2>
     </div>
     <div class="tab-content-set">
         <ul class="nav">
