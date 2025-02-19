@@ -2,11 +2,11 @@
     <app-loading ></app-loading>
 </div>
 
-<div *ngIf="!paymentSelected">
-    <h2 class="notiene">Usted no tiene pagos por procesar.</h2>
-</div>
-<div class="container pt-3" *ngIf="!cargando && paymentSelected">
+<div class="container pt-3" *ngIf="!cargando ">
     <app-backButtn ></app-backButtn>
+    <!-- <div *ngIf="!paymentSelected">
+        <h2 class="notiene">Usted no tiene pagos por procesar.</h2>
+    </div> -->
     <h3 class="text-center">Mis Pagos</h3>
     <div *ngIf="paymentSelected">
         <div class="card">
