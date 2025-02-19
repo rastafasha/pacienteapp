@@ -1,6 +1,6 @@
 <div *ngIf="!usuario">
-    <h2 class="notiene">Usted no tiene registro médico con esta Clínica.</h2>
-    <p class="text-center">si desea, solicite una cita medica de las opciones del boton central</p>
+    <h4 class="notiene">Usted no tiene registro médico con esta Clínica.</h4>
+    <p class="text-center">si desea, solicite una de nuestra categoría disponible</p>
 </div>
 <!-- <div class="row animated fadeIn fast" *ngIf="cargando">
     <div class="col-12">
@@ -11,7 +11,7 @@
         </div>
     </div>
 </div> -->
-<section class="grid_home"  >
+<section class="grid_home"  *ngIf="usuario">
     
     <div class="container">
         <div class="parent">
