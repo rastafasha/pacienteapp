@@ -1,5 +1,13 @@
 .back{
     display: flex;
+    position: fixed;
+    background-color: white;
+    z-index: 99;
+    width: 100vw;
+    top: 10px;
+    left: 0;
+    padding-left: 10px;
+    padding-top: 15px;
 }
 .back i{
     padding-right: 5px;
