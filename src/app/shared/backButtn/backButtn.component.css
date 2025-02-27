@@ -2,7 +2,7 @@
     display: flex;
     position: fixed;
     color: var(--negro);
-    backbottonground-color: var(--blanco);
+    background-color: var(--blanco);
     z-index: 99;
     width: 100vw;
     top: 10px;
