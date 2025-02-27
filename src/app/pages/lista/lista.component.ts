@@ -73,9 +73,9 @@ export class ListaComponent implements OnInit {
       this.appointment_pendings= resp.appointment_pendings.data;
       this.appointment_checkeds= resp.appointment_checkeds.data;
       // console.log('todo appointment',resp);
-      // this.num_appointment= resp.num_appointment;
-      // this.money_of_appointments= resp.money_of_appointments;
-      // this.num_appointment_pendings= resp.num_appointment_pendings;
+      this.num_appointment= resp.num_appointment;
+      this.money_of_appointments= resp.money_of_appointments;
+      this.num_appointment_pendings= resp.num_appointment_pendings;
     })
   }
 
