@@ -10,7 +10,7 @@
                 <li>
                     <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 1}" (click)="optionSelected(1)">Perfil</a>
                 </li>
-                <li>
+                <li >
                     <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 2}" (click)="optionSelected(2)">Presupuestos</a>
                 </li>
             </ul>
@@ -26,9 +26,6 @@
             <section class="container animated fadeInUp " style=" padding-top: 30px; padding-bottom: 50px;" *ngIf="patient">
                 
                 <div class="perfil" >
-                    
-                            
-                    
                     <div class="local_categoria_item" style="height: 220px;">
                         <div class="logo_local">
                             <img [src]="patient.avatar" alt="">
