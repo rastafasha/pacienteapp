@@ -8,6 +8,8 @@ import { PublicidadComponent } from './publicidad/publicidad.component';
 import { CitasComponent } from './citas/citas.component';
 import { SignosvitalesComponent } from './signosvitales/signosvitales.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { PresupuestosComponent } from './presupuestos/presupuestos.component';
+import { PresupuestoDetalleComponent } from './presupuesto-detalle/presupuesto-detalle.component';
 
 
 
@@ -17,14 +19,17 @@ import { PipesModule } from '../pipes/pipes.module';
     CategoriasComponent,
     PublicidadComponent,
     CitasComponent,
-    SignosvitalesComponent
+    SignosvitalesComponent,
+    PresupuestosComponent,
+    PresupuestoDetalleComponent
   ],
   exports: [
     GridHomeComponent,
     CategoriasComponent,
     PublicidadComponent,
     CitasComponent,
-    SignosvitalesComponent
+    SignosvitalesComponent,
+    PresupuestosComponent
   ],
   imports: [
     CommonModule,

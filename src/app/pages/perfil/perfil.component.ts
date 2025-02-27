@@ -13,7 +13,7 @@ export class PerfilComponent implements OnInit {
   obs$ = of(1).pipe(delay(500));
   public cargando: boolean = true;
   
-  
+  option_selected:number = 1;
 
   user:any;
   usuario:any;
@@ -43,13 +43,17 @@ export class PerfilComponent implements OnInit {
 
   getInfoUser(){
     this.cargando = true;
-    this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
+    this.userService.showPatientByNdoc(this.user.id).subscribe((resp:any)=>{
       this.cargando = false;
       // console.log(resp);
       this.patient = resp.patient;
       this.usuario = resp;
       this.patient_id = resp.patient.id;
     })
+  }
+
+  optionSelected(value:number){
+    this.option_selected = value;
   }
 
 }
