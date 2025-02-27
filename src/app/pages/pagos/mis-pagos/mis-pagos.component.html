@@ -3,14 +3,14 @@
 </div>
 
 <div class="container pt-3" *ngIf="!cargando ">
-    <!-- <div *ngIf="!paymentSelected">
+    <div *ngIf="!payments ">
         <h2 class="notiene">Usted no tiene pagos por procesar.</h2>
-    </div> -->
+    </div>
     <app-backButtn></app-backButtn>
-    <div class="row pago">
+    <div class="row pago" *ngIf="payments">
         <div class="card">
             <h3 class="text-center">Mis Pagos</h3>
-            <div class="card-body"  *ngIf="!paymentSelected">
+            <div class="card-body"  *ngIf=" payments && !paymentSelected">
 
                 <ul *ngFor="let payment of payments">
                     <li >
@@ -26,7 +26,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="card-body"  *ngIf="paymentSelected">
+            <div class="card-body"  *ngIf=" payments &&  paymentSelected">
                 <span class="d-flex justify-content-end">
                     <button class="btn btn-outline-success btn-sm" (click)="back()">Cerrar</button>
                 </span>

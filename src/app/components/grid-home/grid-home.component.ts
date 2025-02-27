@@ -72,7 +72,11 @@ export class GridHomeComponent implements OnInit {
       this.appointments= resp.appointments;
       this.appointment_checkeds= resp.appointment_checkeds.data[0];
       this.appointment_pendings= resp.appointment_pendings.data;
-      this.appointment_attention= resp.appointments[0].appointment_attention;
+      // this.appointment_attention= resp.appointments[0].appointment_attention;
+
+      this.num_appointment= resp.num_appointment;
+      this.money_of_appointments= resp.money_of_appointments;
+      this.num_appointment_pendings= resp.num_appointment_pendings;
 
       if(resp.appointments[0].appointment_attention){
         this.recetas= resp.appointments[0].appointment_attention.receta_medica;
