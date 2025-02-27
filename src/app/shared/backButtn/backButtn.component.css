@@ -1,7 +1,8 @@
-.back{
+.backbotton{
     display: flex;
     position: fixed;
-    background-color: white;
+    color: var(--negro);
+    backbottonground-color: var(--blanco);
     z-index: 99;
     width: 100vw;
     top: 10px;
@@ -9,6 +10,6 @@
     padding-left: 10px;
     padding-top: 15px;
 }
-.back i{
+.backbotton i{
     padding-right: 5px;
 }
