@@ -6,7 +6,10 @@
     <app-backButtn></app-backButtn>
     <div class="row">
         <div class="card">
-            <div class="row">
+            <div *ngIf="!cargando && num_appointment === 0 ">
+                <h2 class="notiene">Usted no tiene Registro medico con esta Clínica.</h2>
+            </div>
+            <div class="row" *ngIf=" !cargando && num_appointment > 0">
                 <div class="tab-content-set">
                     <ul class="nav">
                         <li>
@@ -21,12 +24,10 @@
                     </ul>
                 </div>
             </div>
-            <div *ngIf="!patient">
-                <h2 class="notiene">Usted no tiene Registro medico con esta Clínica.</h2>
-            </div>
+            
             
             <div class="card-body">
-                <div  *ngIf="!cargando && patient">
+                <div  *ngIf="!cargando && num_appointment > 0">
                     <ng-container *ngIf="option_selected == 1">
                         <section class="container " style="margin-bottom: 30px; padding-top: 40px; " *ngIf="patient" >
                         

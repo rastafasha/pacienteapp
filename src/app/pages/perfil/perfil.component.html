@@ -10,14 +10,16 @@
                 <li>
                     <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 1}" (click)="optionSelected(1)">Perfil</a>
                 </li>
-                <li>
+                <li >
                     <a href="#" onclick="return false;" [ngClass]="{'active': option_selected == 2}" (click)="optionSelected(2)">Presupuestos</a>
                 </li>
             </ul>
         </div>
     </div>
-    <div *ngIf="!patient">
-        <h2 class="notiene">Usted no tiene registro medico con esta Clínica.</h2>
+    <div class="notiene" *ngIf="!patient && option_selected == 1">
+        <p >Usted no tiene registro medico con esta Clínica.</p>
+        <p>Revise la pestaña Presupuestos, si tiene un presupuesto con esta clínica, puede verlo allí.</p>
+
     </div>
     
     <ng-container *ngIf="option_selected == 1">
@@ -26,9 +28,6 @@
             <section class="container animated fadeInUp " style=" padding-top: 30px; padding-bottom: 50px;" *ngIf="patient">
                 
                 <div class="perfil" >
-                    
-                            
-                    
                     <div class="local_categoria_item" style="height: 220px;">
                         <div class="logo_local">
                             <img [src]="patient.avatar" alt="">
@@ -89,7 +88,7 @@
     </ng-container>
 
     <ng-container *ngIf="option_selected == 2">
-        <section >
+        <section style="margin-bottom: 30px; padding-top: 40px; ">
         
             <app-presupuestos></app-presupuestos>
         
