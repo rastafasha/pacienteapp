@@ -52,6 +52,80 @@
               ],
               "outputHashing": "all"
             },
+            "clinica": {
+              "outputPath": "dist/paciente_clinica",
+              "index": {
+                "input": "src/env/clinica/index.html",
+                "output": "index.html"
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.clinica.ts"
+                }
+              ],
+              "assets": [
+                "src/.htaccess",
+                "src/assets",
+                "src/manifest.webmanifest",
+                "src/env/clinica/manifest.webmanifest",
+                {
+                  "glob": "_redirects",
+                  "input": "src",
+                  "output": "/"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "75kb",
+                  "maximumError": "90kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "aramay": {
+              "outputPath": "dist/paciente_aramay",
+              "index": {
+                "input": "src/env/aramay/index.html",
+                "output": "index.html"
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.aramay.ts"
+                }
+              ],
+              "assets": [
+                "src/.htaccess",
+                "src/assets",
+               "src/manifest.webmanifest",
+               "src/env/aramay/manifest.webmanifest",
+                {
+                  "glob": "_redirects",
+                  "input": "src",
+                  "output": "/"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "3mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "75kb",
+                  "maximumError": "90kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
