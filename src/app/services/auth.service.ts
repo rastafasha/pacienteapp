@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-// import { BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-// import {tap, map, catchError, } from 'rxjs/operators';
-import { catchError, map, of, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
+import Swal from 'sweetalert2';
 import { RegisterForm } from '../auth/interfaces/register-form.interface';
-import { LoginForm } from '../auth/interfaces/login-form.interface';
+import { PasswordForm } from '../auth/interfaces/password-form.interface';
 
 const url_servicios = environment.url_servicios;
 
@@ -16,7 +15,7 @@ const url_servicios = environment.url_servicios;
 })
 export class AuthService {
 
-  user:any;
+  user:User;
   token:any;
 
   constructor(
@@ -28,18 +27,27 @@ export class AuthService {
 
   
   
-    getLocalStorage(){
-      if(localStorage.getItem('token') && localStorage.getItem('user')){
-        let USER = localStorage.getItem('user');
-        this.user = JSON.parse(USER ? USER: '');
-        this.router.navigateByUrl('/app/home');
-      }else{
-        this.user = null;
-        this.router.navigateByUrl('/login');
-      }
-      // console.log(this.user);
-      
-   }
+  getLocalStorage(){
+    // Get current URL to check if we're on change-password route
+    const currentUrl = window.location.href;
+    
+    // Allow change-password route with token to work without being logged in
+    if (currentUrl.includes('/change-password') && currentUrl.includes('token=')) {
+      this.user = null;
+      return; // Don't redirect, allow access to change-password page
+    }
+    
+    if(localStorage.getItem('token') && localStorage.getItem('user')){
+      let USER = localStorage.getItem('user');
+      this.user = JSON.parse(USER ? USER: '');
+      this.router.navigateByUrl('/app/home');
+    }else{
+      this.user = null; // Set user to null if not found
+      this.router.navigateByUrl('/login');
+    }
+    // console.log(this.user); // Log the user data for debugging
+    
+ }
 
    saveLocalStorage(auth:any){
     if(auth && auth.access_token){
@@ -89,7 +97,8 @@ export class AuthService {
         return result;
       }),
       catchError((error:any) => {
-        console.log(error);
+        Swal.fire('Error', error.error.error, 'error');
+        // console.log(error.error.error);
         return of(undefined);
       })
     )
@@ -137,6 +146,26 @@ getLocalDarkMode(){
   // console.log(this.user);
   
 }
+
+
+  forgotPassword(formData:any){
+    return this.http.post(`${url_servicios}/forgot-password`, formData)
+
+  }
+
+  changePassword(formData:any){
+    return this.http.post(`${url_servicios}/change-forgot-password`, formData)
+
+  }
+
+  resetPassword(formData:PasswordForm){
+    return this.http.post(`${url_servicios}/reset-password`, formData)
+
+  }
+  newPassword(formData:PasswordForm){
+    return this.http.post(`${url_servicios}/change-password`, formData)
+
+  }
   
 
 }
