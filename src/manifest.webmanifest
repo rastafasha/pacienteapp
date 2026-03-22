@@ -1,9 +1,9 @@
 {
   "dir": "ltr",
-  "name": "Health Connect | DEMO",
-  "short_name": "Health Connect | DEMO",
+  "name": "Klyntic | DEMO",
+  "short_name": "Klyntic | DEMO",
   "theme_color": "#513081",
-  "description": "Aplicación para conectar paciente con clinica Health Connect me",
+  "description": "Aplicación para conectar paciente con clinica Klyntic ",
   "display": "standalone",
   "scope": "./",
   "start_url": "index.html",

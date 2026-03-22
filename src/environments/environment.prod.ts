@@ -7,28 +7,28 @@ export const environment = {
   url_media: 'http://127.0.0.1:8000/storage/',
 
   //remoto demo  dominio
-  // url_backend: 'https://clinica.health-connect.me/backend-api-citas/',
-  // url_servicios: 'https://clinica.health-connect.me/backend-api-citas/public/api',
-  // url_frontend: 'https://paciente.health-connect.me/',
-  // url_media: 'https://clinica.health-connect.me/backend-api-citas/storage/app/public/',
+  // url_backend: 'https://clinica.klyntic.com/backend-api-citas/',
+  // url_servicios: 'https://clinica.klyntic.com/backend-api-citas/public/api',
+  // url_frontend: 'https://paciente.klyntic.com/',
+  // url_media: 'https://clinica.klyntic.com/backend-api-citas/storage/app/public/',
  
   //remoto cliente aramayrangel
-    // url_backend: 'https://aramayrangel.health-connect.me/backend-api-citas/',
-    // url_servicios: 'https://aramayrangel.health-connect.me/backend-api-citas/public/api',
-    // url_frontend: 'https://aramayrangel.health-connect.me/',
-    // url_media: 'https://aramayrangel.health-connect.me/backend-api-citas/storage/app/public/',
+    // url_backend: 'https://aramayrangel.klyntic.com/backend-api-citas/',
+    // url_servicios: 'https://aramayrangel.klyntic.com/backend-api-citas/public/api',
+    // url_frontend: 'https://aramayrangel.klyntic.com/',
+    // url_media: 'https://aramayrangel.klyntic.com/backend-api-citas/storage/app/public/',
     
   //remoto cliente Clin Santiago de leon
-    // url_backend: 'https://csdleondeccs.health-connect.me/backend-api-citas/',
-    // url_servicios: 'https://csdleondeccs.health-connect.me/backend-api-citas/public/api',
-    // url_frontend: 'https://pacsdleondeccs.health-connect.me/',
-    // url_media: 'https://csdleondeccs.health-connect.me/backend-api-citas/storage/app/public/',
+    // url_backend: 'https://csdleondeccs.klyntic.com/backend-api-citas/',
+    // url_servicios: 'https://csdleondeccs.klyntic.com/backend-api-citas/public/api',
+    // url_frontend: 'https://pacsdleondeccs.klyntic.com/',
+    // url_media: 'https://csdleondeccs.klyntic.com/backend-api-citas/storage/app/public/',
 
   //remoto SOLUMEDICA
-  // url_backend: 'https://solumedica.health-connect.me/backend-api-citas/',
-  // url_servicios: 'https://solumedica.health-connect.me/backend-api-citas/public/api',
-  // url_frontend: 'https://psolumedica.health-connect.me/',
-  // url_media: 'https://solumedica.health-connect.me/backend-api-citas/storage/app/public/',
+  // url_backend: 'https://solumedica.klyntic.com/backend-api-citas/',
+  // url_servicios: 'https://solumedica.klyntic.com/backend-api-citas/public/api',
+  // url_frontend: 'https://psolumedica.klyntic.com/',
+  // url_media: 'https://solumedica.klyntic.com/backend-api-citas/storage/app/public/',
 
 
    //remoto

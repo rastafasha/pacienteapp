@@ -1,9 +1,9 @@
 {
   "dir": "ltr",
-  "name": "Health Connect | Aramay Rangel",
-  "short_name": "Health Connect | Aramay Rangel",
+  "name": "Klyntic | Aramay Rangel",
+  "short_name": "Klyntic | Aramay Rangel",
   "theme_color": "#513081",
-  "description": "Aplicación para conectar paciente con clinica Health Connect me",
+  "description": "Aplicación para conectar paciente con clinica Klyntic",
   "display": "standalone",
   "scope": "./",
   "start_url": "index.html",
