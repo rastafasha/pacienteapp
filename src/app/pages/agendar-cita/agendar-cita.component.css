@@ -9,10 +9,9 @@
     font-family: var(--font-bold);
 }
 
+
 .listadoctors{
     height: auto;
-    max-height: 50vh;
     overflow: hidden;
     overflow-y: scroll;
 }
-

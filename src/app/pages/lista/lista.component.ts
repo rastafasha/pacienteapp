@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of, delay } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,14 +13,12 @@ export class ListaComponent implements OnInit {
 
   public cargando: boolean = true;
 
-  @Input() usuario:any=[]; //recibe la data
-
   option_selected:number = 1;
 
   patient:any;
   
   user:any;
-  // usuario:any;
+  usuario:any;
   patient_id:any;
   appointments:any;
   num_appointment:any;
@@ -29,6 +27,15 @@ export class ListaComponent implements OnInit {
   patient_selected:any;
   appointment_checkeds:any;
   appointment_pendings:any;
+
+  info = `
+  <h2>Sección: Mis Citas</h2>
+  <ul>
+    <li><strong>Historial de Citas:</strong> Consulta las Citas solicitadas a tu médico de confianza.</li> 
+    <li><strong>Estados de las Citas:</strong> Consulta de las Citas solicitados a cada especialidad.</li> 
+    <li><strong>Estados del Pago de Citas:</strong> Consulta el Estado del la deuda, si vez el botón Pagar, te llevará a registrar el pago.</li> 
+    
+  </ul>`;
 
   constructor(
     public authService:AuthService,
@@ -39,10 +46,8 @@ export class ListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // window.scrollTo(0, 0);
-    // console.log(this.user);
-    // this.authService.getLocalStorage();
-    // this.authService.closeMenu();
+    window.scrollTo(0, 0);
+    this.authService.closeMenu();
     this.getInfoUser();
 
     
@@ -52,8 +57,8 @@ export class ListaComponent implements OnInit {
 
   getInfoUser(){
     this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
-      console.log(resp);
-      this.patient = resp.patient;
+      // console.log(resp);
+      this.patient = resp.patient.data;
       // console.log('patient', this.patient);
       this.usuario = resp;
       this.patient_id = resp.patient.id;
@@ -73,9 +78,9 @@ export class ListaComponent implements OnInit {
       this.appointment_pendings= resp.appointment_pendings.data;
       this.appointment_checkeds= resp.appointment_checkeds.data;
       // console.log('todo appointment',resp);
-      this.num_appointment= resp.num_appointment;
-      this.money_of_appointments= resp.money_of_appointments;
-      this.num_appointment_pendings= resp.num_appointment_pendings;
+      // this.num_appointment= resp.num_appointment;
+      // this.money_of_appointments= resp.money_of_appointments;
+      // this.num_appointment_pendings= resp.num_appointment_pendings;
     })
   }
 

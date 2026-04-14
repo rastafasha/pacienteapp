@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from 'express-serve-static-core';
 import { of, delay } from 'rxjs';
+import { Patient } from 'src/app/models/presupuesto';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -13,17 +15,17 @@ import { UserService } from 'src/app/services/user.service';
 export class CitasComponent implements OnInit {
 
   // public cargando: boolean = true;
-  @Input() usuario:any=[]; //recibe la data
-  
+  @Input() usuario:User;
+  @Input() patient:Patient;
   user:any;
   patient_id:number;
-  patient:any = [];
   appointments:any;
   num_appointment:any;
   money_of_appointments:any;
   num_appointment_pendings:any;
   patient_selected:any;
   appointment_pendings:any;
+  cargando = false;
 
   constructor(
     public authService:AuthService,
@@ -38,18 +40,14 @@ export class CitasComponent implements OnInit {
     window.scrollTo(0, 0);
     this.authService.getLocalStorage();
     this.authService.closeMenu();
-
-    this.usuario = this.usuario.patient;
+    this.usuario;
+    this.patient;
     this.getAppointments();
     
   }
   
-  
-
- 
-
   getAppointments(){
-    this.userService.showPatientProfile(this.usuario.id ).subscribe((resp:any)=>{
+    this.userService.showPatientProfile(this.patient.id ).subscribe((resp:any)=>{
       // console.log('todo appointment',resp);
       this.appointments= resp.appointments;
       this.appointment_pendings= resp.appointment_pendings.data;

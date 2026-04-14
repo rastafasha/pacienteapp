@@ -5,12 +5,7 @@
     background-color: var(--fondo-negro);
 }
 
-.darkmode h1,
-.darkmode h2,
-.darkmode h3,
-.darkmode h4,
-.darkmode h5,
-.darkmode p {
+.darkmode h4 {
     color: var(--blanco);
 }
 
@@ -169,13 +164,5 @@
 .darkmode .pago p{
     color: var(--blanco);
 }
-
-
-.darkmode .backbotton{
-    color: var(--blanco) !important;
-    background-color: var(--fondo-negro) !important;
-}
-
-
 
 

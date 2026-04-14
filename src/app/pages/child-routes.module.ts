@@ -11,6 +11,8 @@ import { PagarComponent } from './pagos/pagar/pagar.component';
 import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { LegalComponent } from './legal/legal.component';
+import { LoginComponent } from '../auth/login/login.component';
+import { PresupuestosComponent } from './presupuestos/presupuestos.component';
 
 //pages
 
@@ -20,6 +22,9 @@ const childRoutes: Routes = [
     { path: '',  component: HomeComponent, data:{title:'app'} },
 
     {
+    path:'login', component:LoginComponent
+    },
+    {
     path:'lista', component:ListaComponent
     },
     {
@@ -27,9 +32,6 @@ const childRoutes: Routes = [
     },
     {
       path:'agendar-cita', component:AddAppointmentsComponent
-    },
-    {
-      path:'solicitar-cita', component:AddAppointmentsComponent
     },
     {
       path:'perfil-doctor/:id', component:DoctorProfileComponent
@@ -45,6 +47,9 @@ const childRoutes: Routes = [
     },
     {
       path:'mis-pagos', component:MisPagosComponent
+    },
+    {
+      path:'mis-presupuestos', component:PresupuestosComponent
     },
     {
       path:'ayuda', component:AyudaComponent

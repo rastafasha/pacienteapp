@@ -12,7 +12,7 @@ declare var $:any;
 })
 export class DetallecitaComponent implements OnInit {
   
-  public cargando: boolean = true;
+  public cargando: boolean = false;
 
   appointment_id:any;
   patient:any;
@@ -88,10 +88,6 @@ getInfoCita(){
       
       
     })
-  }
-
-  selectDoc(FILE:any){
-    this.file_selected = FILE;
   }
 
   getFilesLaboratory(){

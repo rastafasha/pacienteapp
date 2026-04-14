@@ -1,13 +1,6 @@
-<!-- <div class="row animated fadeIn fast" *ngIf="cargando">
-    <app-loading ></app-loading>
-</div> -->
-
-<app-skeleton-loader *ngIf="isLoading" [rows]="5" [columns]="3"></app-skeleton-loader>
-        
-
 <div class="col-12" *ngIf="!isLoading">
     <!-- grid_home -->
-    <app-grid-home [usuario]="usuario"></app-grid-home>
+    <app-grid-home [usuario]="usuario" [patient]="patient"></app-grid-home>
     <!-- grid_home -->
     <!-- otrosCategorias -->
     <app-categorias></app-categorias>
@@ -19,12 +12,12 @@
     <!-- publicidad -->
     <br>
     <!-- Todas las citas -->
-    <app-citas [usuario]="usuario"></app-citas>
+    <app-citas [usuario]="usuario" [patient]="patient"></app-citas>
     
     <!-- Todas las citas -->
     <br>
     <!-- signos vitales -->
-    <app-signosvitales [usuario]="usuario"></app-signosvitales>
+    <app-signosvitales [usuario]="usuario" [patient]="patient"></app-signosvitales>
     <!-- signos vitales -->
     
 </div>

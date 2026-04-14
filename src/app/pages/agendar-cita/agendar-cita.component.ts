@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-agendar-cita',
@@ -12,8 +11,6 @@ import Swal from 'sweetalert2';
 export class AgendarCitaComponent implements OnInit {
 
   public selectedValue!: string;
-  public cargando: boolean = true;
-  public cargandoPago: boolean = true;
 
   valid_form_success: boolean = false;
   public text_validation:string = '';
@@ -37,6 +34,7 @@ export class AgendarCitaComponent implements OnInit {
   surname_companion:string = '';
   
   amount:number = 0;
+  precio_cita:number;
   amount_add:number = 0;
   method_payment:string = '';
 
@@ -44,33 +42,34 @@ export class AgendarCitaComponent implements OnInit {
   DOCTORS:any = [];
   DOCTOR:any = [];
   DOCTOR_SELECTED:any;
-  user:any;
+  DOCTOR_Det_SELECTED:any;
+  selecteDoc:boolean = false
 
   selected_segment_hour:any;
-  patient_selected:any;
+  user:any;
+  user_id:any;
 
   
 
   constructor(
-    public appointmentService:AppointmentService,
     // public doctorService:DoctorService,
+    public appointmentService:AppointmentService,
     public router: Router,
     public activatedRoute: ActivatedRoute,
-    public userService:UserService,
-    public authService:AuthService,
   ){
-    this.user = this.authService.user;
 
   }
 
   ngOnInit(): void {
     // this.doctorService.closeMenuSidebar();
     window.scrollTo(0, 0);
-    this.cargando = true;
+    let USER = localStorage.getItem("user");
+    this.user = JSON.parse(USER ? USER: '');
+    this.user_id = this.user.id;
+
     this.activatedRoute.params.subscribe((resp:any)=>{
       // console.log(resp);
       this.specilityie_id = resp.id;
-      this.cargando = false;
       
     });
     this.getPrice();
@@ -78,17 +77,7 @@ export class AgendarCitaComponent implements OnInit {
       this.hours = resp.hours;
       this.specialities = resp.specialities;
     })
-
-    // this.user;
-    
-    if(this.user === null || !this.user){
-      this.user = this.authService.user;
-      this.getInfoUser();
-    }
-    console.log(this.user);
-    
   }
-  
 
   getPrice(){
     this.appointmentService.showSpeciality(this.specilityie_id).subscribe((resp:any)=>{
@@ -98,13 +87,6 @@ export class AgendarCitaComponent implements OnInit {
     })
 
   }
-
-  getInfoUser(){
-    this.userService.showPatientByNdoc(this.user.n_doc).subscribe((resp:any)=>{
-      this.patient_selected = resp.patient;
-      this.filterPatient();
-    })
-  }
   
   filtro(){
     let data = {
@@ -113,10 +95,9 @@ export class AgendarCitaComponent implements OnInit {
       speciality_id:this.specilityie_id
     }
     this.appointmentService.lisFiter(data).subscribe((resp:any)=>{
-      // console.log(resp);
       this.DOCTORS = resp.doctors;
-      
     })
+    this.selecteDoc =true
   }
 
   countDisponibilidad(DOCTOR:any){
@@ -125,58 +106,61 @@ export class AgendarCitaComponent implements OnInit {
     return SEGMENTS.length;
   }
 
-  showSegment(DOCTOR:any){
+  showSegment(DOCTOR: any) {
     this.DOCTOR_SELECTED = DOCTOR;
+    // this.router.navigateByUrl(`/agendar-cita/form/${DOCTOR.doctor.id}`);
   }
 
-  selecSegment(SEGMENT:any){
+  showDetail(DOCTOR:any){
+    this.DOCTOR_Det_SELECTED = DOCTOR;
+  }
+
+  selecSegment(SEGMENT:any, ){
     this.selected_segment_hour = SEGMENT;
   }
 
-
-  filterPatient(){
-    this.appointmentService.getPatient(this.patient_selected.n_doc+"").subscribe((resp:any)=>{
-      // console.log(resp);
-      this.patient = resp;
-      if(resp.menssage === 403){
-        this.name= '';
-        this.surname= '';
-        this.phone= '';
-        this.n_doc= 0;
-      }else{
-        this.name= resp.name;
-        this.surname= resp.surname;
-        this.phone= resp.phone;
-        this.n_doc= resp.n_doc;
-      }
-    })
-  }
-  filterPatientNew(){
-    this.appointmentService.getPatient(this.n_doc+"").subscribe((resp:any)=>{
-      // console.log(resp);
-      this.patient = resp;
-      if(resp.menssage === 403){
-        this.name= '';
-        this.surname= '';
-        this.phone= '';
-        this.n_doc= 0;
-      }else{
-        this.name= resp.name;
-        this.surname= resp.surname;
-        this.phone= resp.phone;
-        this.n_doc= resp.n_doc;
-      }
-    })
+  back(){
+    this.DOCTOR_Det_SELECTED = null;
+    // this.DOCTOR_SELECTED = !this.DOCTOR_SELECTED;
   }
 
-  resetPatient(){
-    this.name= '';
-        this.surname= '';
-        this.phone= '';
-        this.n_doc= 0;
-  }
+  
+  filtroDoctor(){
+    // this.isfiltered = false;
+    const data = {
 
-  save(){debugger
+    date_appointment:this.date_appointment,
+    hour:this.hour,
+    speciality_id:this.speciality_id
+  }
+  this.appointmentService.lisFiterByDoctor(data, this.DOCTOR_SELECTED.id).subscribe((resp: any) => {
+    // if (resp && resp.doctor && Array.isArray(resp.doctor)) {
+    console.log('doctor filtrado',resp);
+    // this.isfiltered = false;
+   
+    if (resp.message === 403 || resp.doctor.length === 0) {
+      // Swal.fire('Actualizado', this.text_validation, 'success');
+      this.text_validation = resp.message_text;
+      Swal.fire({
+        position: "top-end",
+        icon: "warning",
+        title: this.text_validation,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }else{
+      
+      this.DOCTOR = resp.doctor;
+      console.log(resp.doctor);
+      // this.isfiltered = true;
+    }
+    
+
+  });
+}
+
+  
+  save(){
     this.text_validation = '';
 
     this.speciality_id = this.speciality.id;
@@ -185,75 +169,36 @@ export class AgendarCitaComponent implements OnInit {
     //   this.text_validation = "El Monto ingresado como adelanto no puede ser mayor al costo de la cita medica";
     //   return;
     // }
-    if(!this.name ||!this.surname|| !this.n_doc || !this.phone 
-      || !this.date_appointment|| !this.speciality_id
+    if( !this.date_appointment|| !this.speciality_id
       || !this.selected_segment_hour ){
       this.text_validation = "Los campos son Necesarios(Segmento de hora, fecha, especialidad, paciente, pago)";
       return;
     }
 
     let data ={
-      "doctor_id": this.DOCTOR_SELECTED.doctor.id,
-        // "patient_id": ,
-        user_id:this.patient.id,
-        name: this.name,
-        surname: this.surname,
-        n_doc: this.n_doc,
-        email:this.user.email,
-        phone: this.phone,
-        name_companion: this.name_companion,
-        surname_companion: this.surname_companion,
-        "date_appointment": this.date_appointment,
-        "speciality_id": this.speciality_id,
-        "doctor_schedule_join_hour_id": this.selected_segment_hour.id,
-        amount:this.speciality.price,
-        amount_add:0,
-        method_payment:'Pendiente',
-        // amount:this.amount,
-        // amount_add:this.amount_add,
-        // method_payment:this.method_payment,
+        doctor_id: this.DOCTOR_SELECTED.doctor.id,
+        patient_id:this.user_id,
+        name: this.user.name,
+        surname: this.user.surname,
+        n_doc: this.user.n_doc,
+        phone: this.user.phone,
+        date_appointment: this.date_appointment,
+        speciality_id: this.speciality_id,
+        doctor_schedule_join_hour_id: this.selected_segment_hour.id,
+        amount:this.DOCTOR_SELECTED.doctor.precio_cita,
+        status_pay:2,
+        status: 1
       }
-      this.cargando = true;
+
     this.appointmentService.storeAppointment(data).subscribe((resp:any)=>{
       // console.log(resp);
       // this.text_success = "La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago";
-      // this.cargando = false;
-      // Swal.fire('Exito!', `La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago`, 'success');
-      // this.router.navigate(['/app/lista']);
-
-      if(resp.message == 403){
-        // Swal.fire('Actualizado', this.text_validation, 'success');
-        this.text_validation = resp.message_text;
-        Swal.fire({
-          position: "top-end",
-          icon: "warning",
-          title: this.text_validation,
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }else{
-        // Swal.fire('Actualizado', this.text_success, 'success' );
-        // this.text_success = 'La Cita medica se ha creado, favor espere la verificacion de  el pago';
-        this.text_success = 'Se envio la solicitud de la cita médica'
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: this.text_success,
-          showConfirmButton: false,
-          timer: 1500
-        });
-        this.router.navigate(['/app/lista']);
-    }
+      Swal.fire('Exito!', `La Cita medica se ha creado, favor espere la notificacion de confirmacion para procesar el pago`, 'success');
+      this.router.navigate(['/app/lista']);
     })
   }
 
   cancel(){
-    this.name= '';
-    this.surname= '';
-    this.phone= '';
-    this.n_doc= 0;
-    this.name_companion= '';
-    this.surname_companion= '';
     this.date_appointment= '';
     this.hour= '';
     this.selected_segment_hour.id = 0;

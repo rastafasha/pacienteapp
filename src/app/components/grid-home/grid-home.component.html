@@ -1,21 +1,15 @@
-<div *ngIf="!usuario">
+<app-skeleton-loader *ngIf="cargando" [rows]="2" [columns]="2"></app-skeleton-loader>
+
+<div *ngIf="!usuario && !cargando">
     <h4 class="notiene">Bienvenido, Aun no posee citas médicas con esta Clínica.</h4>
     <p class="text-center">si desea, solicite una de nuestra categoría disponible</p>
 </div>
-<div *ngIf="usuario && num_appointment === 0">
+<div *ngIf="usuario && num_appointment === 0 && !cargando">
     <h4 class="notiene">Bienvenido, Aun no registro médico con esta Clínica.</h4>
     <p class="text-center">si desea, solicite una de nuestra categoría disponible</p>
 </div>
-<!-- <div class="row animated fadeIn fast" *ngIf="cargando">
-    <div class="col-12">
-        <div class="alert alert-info text-center">
-            <div class="alert-heading">Cargando</div>
-            <i class="fa fa-spin fa-refresh fa-1x"></i>
-            <p class="mb-0">Por favor espere</p>
-        </div>
-    </div>
-</div> -->
-<section class="grid_home"  *ngIf="usuario && num_appointment > 0">
+
+<section class="grid_home"  *ngIf="usuario && num_appointment > 0 && !cargando">
     
     <div class="container">
         <div class="parent">
@@ -27,7 +21,7 @@
                     <ng-container *ngFor="let item of appointment_pendings | slice:0:1; ">
                         <div class="datoscita">
                             <h3>Dr. {{item.doctor.full_name}}</h3>
-                            <p><b style="color: var(--blanco);">{{item.speciality.name}}</b></p>
+                            <p><b style="color: var(--blanco);">{{item.doctor.speciality.name}}</b></p>
                             <p>{{item.date_appointment_format}}</p>
                             <p>{{item.segment_hour.format_segment.hour_start}} - {{item.segment_hour.format_segment.hour_end}}</p>
                             <div class="addic oculto-cita">
@@ -52,21 +46,21 @@
                     </div> -->
                     <div class="datospaciente">
                         <h5>Hola!,</h5>
-                        <h3 style="font-size: 16px;">{{usuario?.full_name}}</h3>
-                        <p><b>Id</b> {{usuario?.n_doc}}</p>
-                        <p><b>Teléfono:</b> {{usuario?.phone}}</p>
+                        <h3 style="font-size: 16px;">{{patient_selected?.full_name}}</h3>
+                        <p><b>Id</b> {{patient_selected?.n_doc}}</p>
+                        <!-- <p><b>Teléfono:</b> {{patient_selected?.phone}}</p> -->
                         <div class="oculto">
                         <!-- <p><b>Responsable:</b> <br>
-                            {{usuario?.person.name_responsable}}
+                            {{patient_selected?.person.name_responsable}}
                         </p> -->
                         <p><b>Atnt. Alergico:</b> <br>
-                            {{usuario?.antecedent_alerg}}
+                            {{patient_selected?.antecedent_alerg}}
                         </p>
                         <p><b>Atnt. Personal:</b> <br>
-                            {{usuario?.antecedent_personal}}
+                            {{patient_selected?.antecedent_personal}}
                         </p>
                         <p><b>Atnt. Familiar:</b> <br>
-                            {{usuario?.antecedent_family}}
+                            {{patient_selected?.antecedent_family}}
                         </p>
                         
                         </div>
@@ -85,7 +79,7 @@
                     <div *ngIf="appointment_attention">
                         <div class="datosmedicinas-oculto">
                             <h3>Dr.{{appointment?.doctor.full_name}}</h3>
-                                <p>{{appointment?.speciality.name}}</p>
+                                <p>{{appointment?.doctor.speciality.name}}</p>
                                 <p><b style="color:#fff">Fecha de Atención:</b> {{appointment?.date_appointment_format}}</p>
                                 <p><b style="color:#fff">Status: </b>
                                     <span *ngIf="appointment?.status === 1"> Pendiente</span>
@@ -112,7 +106,7 @@
                         <div class="datosrecipe">
                             <div class="oculto-datosrecipe">
                                 <h3>Dr.{{appointment?.doctor.full_name}}</h3>
-                                <p>{{appointment?.speciality.name}}</p>
+                                <p>{{appointment?.doctor.speciality.name}}</p>
                                 <p><b style="color:#fff">Fecha de Atención:</b> {{appointment?.date_appointment_format}}</p>
                                 <p><b style="color:#fff">Status: </b>
                                     <span *ngIf="appointment?.status === 1"> Pendiente</span>

@@ -17,12 +17,10 @@ declare const gapi: any;
   styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit {
-  name = new FormControl();
-  surname = new FormControl();
   email = new FormControl();
-  password = new FormControl();
-  n_doc = new FormControl();
-  remember = new FormControl();
+    password = new FormControl();
+    n_doc = new FormControl();
+    remember = new FormControl();
 
   loginForm: FormGroup;
   submitted = false;
@@ -40,8 +38,7 @@ export class LoginComponent implements OnInit {
   // Registro
 
   errors:any = null;
-
-  
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -67,8 +64,6 @@ ngOnInit(){
 
 validador(){
   this.registerForm = this.fb.group({
-    name: ['', Validators.required],
-    surname: ['', Validators.required],
     email: ['', [Validators.required]],
     n_doc: ['', Validators.required],
     password: ['', Validators.required],
@@ -114,27 +109,37 @@ login(){
     // console.log(this.user)
 }
 
-
-
+ 
 
 // Registro
-crearUsuario(){
-  this.formSumitted = true;
-  // if(this.registerForm.invalid){
-  //   return;
-  // }
+ crearUsuario() {
+    this.isLoading = true; // Cámbialo a true al empezar
+    this.formSumitted = true;
 
-  this.authService.crearUsuario(this.registerForm.value).subscribe(
-    resp =>{
-      Swal.fire('Registrado!', `Ya puedes ingresar`, 'success');
-      this.ngOnInit();
-    },(error) => {
-      Swal.fire('Error', error.error.msg, 'error');
-      this.errors = error.error;
-    }
-  );
-  return false;
-}
+    this.authService.crearUsuario(this.registerForm.value).subscribe(
+      resp => {
+        this.isLoading = false;
+        Swal.fire('¡Registrado!', 'Cuenta vinculada con éxito. Ya puedes ingresar.', 'success');
+        this.router.navigateByUrl('/login'); // Es mejor redirigir al login
+      },
+      (error) => {
+        this.isLoading = false;
+
+        // Si el error es porque el paciente no existe en el consultorio
+        let mensajeError = "No se pudo completar el registro";
+
+        if (error.status === 404) {
+          mensajeError = "No encontramos tu registro en el consultorio. Por favor, contacta a tu médico.";
+        } else if (error.error && typeof error.error === 'object') {
+          // Si son errores de validación (email duplicado, etc)
+          mensajeError = Object.values(error.error).join(" / ");
+        }
+
+        Swal.fire('Error', mensajeError, 'error');
+        this.errors = error.error;
+      }
+    );
+  }
 
 campoNoValido(campo: string): boolean {
   if(this.registerForm.get(campo).invalid && this.formSumitted){

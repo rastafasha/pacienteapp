@@ -19,38 +19,36 @@ export class AppointmentService {
 
   listConfig(){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token})
-    let URL = url_servicios+'/appointment/config';
+    let URL = url_servicios+'/appointments/config';
     return this.http.get(URL, {headers:headers});
   }
   listAppointementAtendidas(){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token})
-    let URL = url_servicios+'/appointment/atendidas';
+    let URL = url_servicios+'/appointments/atendidas';
     return this.http.get(URL, {headers:headers});
   }
 
   lisFiter(data:any){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
-    let URL = url_servicios+"/appointment/filter";
+    let URL = url_servicios+"/appointments/filter";
     return this.http.post(URL,data, {headers:headers});
   }
 
   getPatient(n_doc:string =''){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
-    let URL = url_servicios+"/appointment/patient?n_doc="+n_doc;
+    let URL = url_servicios+"/appointments/patient?n_doc="+n_doc;
     return this.http.get(URL, {headers:headers});
   }
-  
-  
 
   storeAppointment(data:any){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
-    let URL = url_servicios+"/appointment/store";
+    let URL = url_servicios+"/appointments/store";
     return this.http.post(URL,data, {headers:headers});
   }
   
   showAppointment(appointment_id:any){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
-    let URL = url_servicios+"/appointment/show/"+appointment_id;
+    let URL = url_servicios+"/appointments/show/"+appointment_id;
     return this.http.get(URL,{headers:headers});
   }
   showSpeciality(speciality:any){
@@ -59,10 +57,34 @@ export class AppointmentService {
     return this.http.get(URL,{headers:headers});
   }
 
-  editAppointment(data:any, appointment_id:any){
-    let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
-    let URL = url_servicios+"/appointment/update/"+appointment_id;
-    return this.http.put(URL,data,{headers:headers});
+  
+  lisFiterByDoctor(data:any, doctor_id:number){
+    const headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
+    const URL = url_servicios+"/appointments/filterbydoctor/"+doctor_id;
+    return this.http.post(URL,data, {headers:headers});
+  }
+  listAppointmentDocts(
+    doctor_id:any, 
+    page=1, 
+    search='', 
+    search_patient='',
+    date= '',
+  ){
+    const headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
+    let LINK = "";
+    if(search){
+      LINK+="&search="+search;
+    }
+    if(search_patient){
+      LINK+="&search_patient="+search_patient;
+      }
+    
+    if(date){
+      LINK+="&date="+date;
+    }
+    
+    const URL = url_servicios+'/appointments/byDoctor/'+doctor_id+'/?page='+page+LINK;
+    return this.http.get(URL, {headers:headers});
   }
   
 
@@ -74,10 +96,9 @@ export class AppointmentService {
     return this.http.get(URL,{headers:headers});
   }
 
-
   getLaboratoryByAppointment(appointment_id:any){
     let headers = new HttpHeaders({'Authorization': 'Bearer'+this.authService.token});
-    let URL = url_servicios+"/laboratory/showByAppointment/"+appointment_id;
+    let URL = url_servicios+"/laboratory/showByAppointments/"+appointment_id;
     return this.http.get(URL,{headers:headers});
   }
 }

@@ -18,7 +18,7 @@ import { MisPagosComponent } from './pagos/mis-pagos/mis-pagos.component';
 import { PagarComponent } from './pagos/pagar/pagar.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { LegalComponent } from './legal/legal.component';
-import { PipesModule } from '../pipes/pipes.module';
+import { PresupuestosComponent } from './presupuestos/presupuestos.component';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import { PipesModule } from '../pipes/pipes.module';
     MisPagosComponent,
     PagarComponent,
     AyudaComponent,
-    LegalComponent
+    LegalComponent,
+    PresupuestosComponent
   ],
   exports: [
     HomeComponent,
@@ -48,7 +49,8 @@ import { PipesModule } from '../pipes/pipes.module';
     MisPagosComponent,
     PagarComponent,
     AyudaComponent,
-    LegalComponent
+    LegalComponent,
+    PresupuestosComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,6 @@ import { PipesModule } from '../pipes/pipes.module';
     SharedModule,
     ComponentsModule,
     PagesRoutingModule,
-    PipesModule
     
     
   ],

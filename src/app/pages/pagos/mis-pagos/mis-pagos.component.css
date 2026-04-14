@@ -12,16 +12,16 @@ p{
     justify-content: space-around;
 }
 
-.pago{
-    display: flex;
-    justify-content: space-between;
+.card {
+  transition: border-color 0.3s ease-in-out;
 }
-.pago ul{
-    margin: 0;
-    padding: 0;
-}
-.pago ul li{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+
+.btn-outline-primary.rounded-circle {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 2px;
+  font-weight: bold;
 }

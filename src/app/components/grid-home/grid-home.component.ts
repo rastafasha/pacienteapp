@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { of, delay } from 'rxjs';
+import { Patient } from 'src/app/models/presupuesto';
+import { User } from 'src/app/models/user';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ConfigService } from 'src/app/services/config.service';
@@ -13,10 +15,11 @@ import { UserService } from 'src/app/services/user.service';
 export class GridHomeComponent implements OnInit {
 
   // @Input() childMessage:any=[]; //recibe la data
-  @Input() usuario:any=[]; //recibe la data
+ 
   // @Output() userV: EventEmitter<any>  = new EventEmitter();// envia la data
   public cargando: boolean = true;
-
+  @Input() usuario:User;
+   @Input() patient:Patient;
   
   user:any;
   // patient:any = [];
@@ -47,13 +50,8 @@ export class GridHomeComponent implements OnInit {
     window.scrollTo(0, 0);
     this.authService.getLocalStorage();
     this.authService.closeMenu();
+    this.patient_selected = this.patient;
     this.getConfig();
-    
-    this.usuario = this.usuario.patient;
-
-    if(this.usuario === null || !this.usuario){
-      this.usuario = this.authService.user;
-    }
     this.getPatient();
     
   }
@@ -66,8 +64,9 @@ export class GridHomeComponent implements OnInit {
 
 
   getPatient(){
-    this.userService.showPatientProfile(this.usuario.id).subscribe((resp:any)=>{
-      console.log(resp);
+    this.cargando = true
+    this.userService.showPatientProfile(this.patient.id).subscribe((resp:any)=>{
+      
       this.patient_selected= resp.patient;
       this.appointments= resp.appointments;
       this.appointment_checkeds= resp.appointment_checkeds.data[0];
@@ -78,14 +77,14 @@ export class GridHomeComponent implements OnInit {
       this.money_of_appointments= resp.money_of_appointments;
       this.num_appointment_pendings= resp.num_appointment_pendings;
 
-      if(resp.appointments[0].appointment_attention){
-        this.recetas= resp.appointments[0].appointment_attention.receta_medica;
-      }
-      if(this.appointment_checkeds.status === 2 ){
-        this.appointment_checkeds;
+       this.appointment_attention = resp.appointments?.[0]?.appointment_attention || null;
+      if (resp.appointments?.[0]?.appointment_attention) {
+        this.recetas = resp.appointments[0].appointment_attention.receta_medica;
+      } else {
+        this.recetas = [];
       }
       this.appointment= resp.appointments;
-      
+      this.cargando = false
     })
   }
 

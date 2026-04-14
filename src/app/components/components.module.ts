@@ -8,8 +8,7 @@ import { PublicidadComponent } from './publicidad/publicidad.component';
 import { CitasComponent } from './citas/citas.component';
 import { SignosvitalesComponent } from './signosvitales/signosvitales.component';
 import { PipesModule } from '../pipes/pipes.module';
-import { PresupuestosComponent } from './presupuestos/presupuestos.component';
-import { PresupuestoDetalleComponent } from './presupuesto-detalle/presupuesto-detalle.component';
+import { ModalInstruccionesComponent } from './modal-instrucciones/modal-instrucciones.component';
 
 
 
@@ -20,8 +19,7 @@ import { PresupuestoDetalleComponent } from './presupuesto-detalle/presupuesto-d
     PublicidadComponent,
     CitasComponent,
     SignosvitalesComponent,
-    PresupuestosComponent,
-    PresupuestoDetalleComponent
+    ModalInstruccionesComponent
   ],
   exports: [
     GridHomeComponent,
@@ -29,7 +27,7 @@ import { PresupuestoDetalleComponent } from './presupuesto-detalle/presupuesto-d
     PublicidadComponent,
     CitasComponent,
     SignosvitalesComponent,
-    PresupuestosComponent
+    ModalInstruccionesComponent
   ],
   imports: [
     CommonModule,
