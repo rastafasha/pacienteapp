@@ -5,9 +5,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { PresupuestoService } from 'src/app/services/presupuesto.service';
 declare var bootstrap: any;
 @Component({
-  selector: 'app-presupuestos',
-  templateUrl: './presupuestos.component.html',
-  styleUrls: ['./presupuestos.component.css']
+    selector: 'app-presupuestos',
+    templateUrl: './presupuestos.component.html',
+    styleUrls: ['./presupuestos.component.css'],
+    standalone: false
 })
 export class PresupuestosComponent implements OnInit {
   cargando= false;

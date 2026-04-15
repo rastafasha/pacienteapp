@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-instrucciones',
-  templateUrl: './modal-instrucciones.component.html',
-
-  styleUrls: ['./modal-instrucciones.component.css']
+    selector: 'app-modal-instrucciones',
+    templateUrl: './modal-instrucciones.component.html',
+    styleUrls: ['./modal-instrucciones.component.css'],
+    standalone: false
 })
 export class ModalInstruccionesComponent {
 

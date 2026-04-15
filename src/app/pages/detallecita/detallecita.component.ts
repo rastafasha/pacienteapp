@@ -6,9 +6,10 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 import { UserService } from 'src/app/services/user.service';
 declare var $:any;  
 @Component({
-  selector: 'app-detallecita',
-  templateUrl: './detallecita.component.html',
-  styleUrls: ['./detallecita.component.css']
+    selector: 'app-detallecita',
+    templateUrl: './detallecita.component.html',
+    styleUrls: ['./detallecita.component.css'],
+    standalone: false
 })
 export class DetallecitaComponent implements OnInit {
   

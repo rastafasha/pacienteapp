@@ -11,12 +11,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pacienteapp",
+            "outputPath": {
+              "base": "dist/pacienteapp"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -27,8 +30,8 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "serviceWorker": "ngsw-config.json",
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -53,7 +56,9 @@
               "outputHashing": "all"
             },
             "clinica": {
-              "outputPath": "dist/paciente_clinica",
+              "outputPath": {
+                "base": "dist/paciente_clinica"
+              },
               "index": {
                 "input": "src/env/clinica/index.html",
                 "output": "index.html"
@@ -90,7 +95,9 @@
               "outputHashing": "all"
             },
             "aramay": {
-              "outputPath": "dist/paciente_aramay",
+              "outputPath": {
+                "base": "dist/paciente_aramay"
+              },
               "index": {
                 "input": "src/env/aramay/index.html",
                 "output": "index.html"
@@ -127,9 +134,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true

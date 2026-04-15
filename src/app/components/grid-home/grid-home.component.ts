@@ -8,9 +8,10 @@ import { ConfigService } from 'src/app/services/config.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-grid-home',
-  templateUrl: './grid-home.component.html',
-  styleUrls: ['./grid-home.component.css']
+    selector: 'app-grid-home',
+    templateUrl: './grid-home.component.html',
+    styleUrls: ['./grid-home.component.css'],
+    standalone: false
 })
 export class GridHomeComponent implements OnInit {
 

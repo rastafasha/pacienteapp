@@ -4,9 +4,10 @@ import { User } from 'src/app/models/user';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
-  selector: 'app-doctor-profile',
-  templateUrl: './doctor-profile.component.html',
-  styleUrls: ['./doctor-profile.component.css']
+    selector: 'app-doctor-profile',
+    templateUrl: './doctor-profile.component.html',
+    styleUrls: ['./doctor-profile.component.css'],
+    standalone: false
 })
 export class DoctorProfileComponent implements OnInit {
   public cargando: boolean = false;

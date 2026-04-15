@@ -8,9 +8,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-citas',
-  templateUrl: './citas.component.html',
-  styleUrls: ['./citas.component.css']
+    selector: 'app-citas',
+    templateUrl: './citas.component.html',
+    styleUrls: ['./citas.component.css'],
+    standalone: false
 })
 export class CitasComponent implements OnInit {
 

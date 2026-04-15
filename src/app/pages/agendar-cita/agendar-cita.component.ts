@@ -4,9 +4,10 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-agendar-cita',
-  templateUrl: './agendar-cita.component.html',
-  styleUrls: ['./agendar-cita.component.css']
+    selector: 'app-agendar-cita',
+    templateUrl: './agendar-cita.component.html',
+    styleUrls: ['./agendar-cita.component.css'],
+    standalone: false
 })
 export class AgendarCitaComponent implements OnInit {
 

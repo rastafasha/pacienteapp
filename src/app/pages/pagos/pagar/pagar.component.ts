@@ -13,9 +13,10 @@ import { TasabcvService } from 'src/app/services/tasabcv.service';
 // import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-pagar',
-  templateUrl: './pagar.component.html',
-  styleUrls: ['./pagar.component.css']
+    selector: 'app-pagar',
+    templateUrl: './pagar.component.html',
+    styleUrls: ['./pagar.component.css'],
+    standalone: false
 })
 export class PagarComponent implements OnInit {
   public PaymentRegisterForm: FormGroup;

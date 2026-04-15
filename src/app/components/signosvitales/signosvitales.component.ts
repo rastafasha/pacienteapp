@@ -7,9 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-signosvitales',
-  templateUrl: './signosvitales.component.html',
-  styleUrls: ['./signosvitales.component.css']
+    selector: 'app-signosvitales',
+    templateUrl: './signosvitales.component.html',
+    styleUrls: ['./signosvitales.component.css'],
+    standalone: false
 })
 export class SignosvitalesComponent implements OnInit {
   // public cargando: boolean = true;

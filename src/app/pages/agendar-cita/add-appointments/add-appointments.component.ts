@@ -4,9 +4,10 @@ import { AppointmentService } from 'src/app/services/appointment.service';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-add-appointments',
-  templateUrl: './add-appointments.component.html',
-  styleUrls: ['./add-appointments.component.scss']
+    selector: 'app-add-appointments',
+    templateUrl: './add-appointments.component.html',
+    styleUrls: ['./add-appointments.component.scss'],
+    standalone: false
 })
 export class AddAppointmentsComponent {
   public selectedValue!: string;
