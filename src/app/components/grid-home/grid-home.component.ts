@@ -1,22 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { of, delay } from 'rxjs';
-import { Patient } from 'src/app/models/presupuesto';
-import { User } from 'src/app/models/user';
-import { AppointmentService } from 'src/app/services/appointment.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { ConfigService } from 'src/app/services/config.service';
-import { UserService } from 'src/app/services/user.service';
+import { Component, Input, OnInit} from '@angular/core';
+import { Patient } from '../../models/presupuesto';
+import { User } from '../../models/user';
+import { AppointmentService } from '../../services/appointment.service';
+import { AuthService } from '../../services/auth.service';
+import { ConfigService } from '../../services/config.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-grid-home',
-  templateUrl: './grid-home.component.html',
-  styleUrls: ['./grid-home.component.css']
+    selector: 'app-grid-home',
+    templateUrl: './grid-home.component.html',
+    styleUrls: ['./grid-home.component.css'],
+    standalone: false
 })
 export class GridHomeComponent implements OnInit {
-
-  // @Input() childMessage:any=[]; //recibe la data
- 
-  // @Output() userV: EventEmitter<any>  = new EventEmitter();// envia la data
   public cargando: boolean = true;
   @Input() usuario:User;
    @Input() patient:Patient;

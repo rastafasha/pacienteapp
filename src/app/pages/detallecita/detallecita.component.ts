@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { of, delay } from 'rxjs';
-import { AppointmentService } from 'src/app/services/appointment.service';
-import { UserService } from 'src/app/services/user.service';
+import { AppointmentService } from '../../services/appointment.service';
+import { UserService } from '../../services/user.service';
 declare var $:any;  
 @Component({
-  selector: 'app-detallecita',
-  templateUrl: './detallecita.component.html',
-  styleUrls: ['./detallecita.component.css']
+    selector: 'app-detallecita',
+    templateUrl: './detallecita.component.html',
+    styleUrls: ['./detallecita.component.css'],
+    standalone: false
 })
 export class DetallecitaComponent implements OnInit {
   

@@ -1,15 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { of, delay } from 'rxjs';
-import { Patient } from 'src/app/models/presupuesto';
-import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { Patient } from '../../models/presupuesto';
+import { User } from '../../models/user';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    standalone: false
 })
 export class HomeComponent implements OnInit {
   // @Input() usuario:any;
@@ -36,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public authService:AuthService,
-   
+    public toastr:ToastrService,
     public userService:UserService,
     public activatedRoute:ActivatedRoute,
     private router: Router,
@@ -93,7 +94,7 @@ export class HomeComponent implements OnInit {
 
       // General toastr for any pending appointments
       if (this.appointment_pendings && this.appointment_pendings.length > 0) {
-        // this.toastr.info(`${this.appointment_pendings.length} cita(s) pendiente(s)`, 'Citas');
+        this.toastr.info(`${this.appointment_pendings.length} cita(s) pendiente(s)`, 'Citas');
       }
 
       // Lógica para avisar si hay una cita pendiente

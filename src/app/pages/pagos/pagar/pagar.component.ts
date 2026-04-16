@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Payment } from 'src/app/models/payment';
-import { PaymentService } from 'src/app/services/payment.service';
-import { PaymentMethod } from 'src/app/models/paymentMethod';
-import { User } from 'src/app/models/user';
-import { PaymentMethodService } from 'src/app/services/paymentMethod.service';
-import { AppointmentService } from 'src/app/services/appointment.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
-import { TasabcvService } from 'src/app/services/tasabcv.service';
-// import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
+import { Payment } from '../../../models/payment';
+import { PaymentMethod } from '../../../models/paymentMethod';
+import { User } from '../../../models/user';
+import { AppointmentService } from '../../../services/appointment.service';
+import { AuthService } from '../../../services/auth.service';
+import { PaymentService } from '../../../services/payment.service';
+import { PaymentMethodService } from '../../../services/paymentMethod.service';
+import { TasabcvService } from '../../../services/tasabcv.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
-  selector: 'app-pagar',
-  templateUrl: './pagar.component.html',
-  styleUrls: ['./pagar.component.css']
+    selector: 'app-pagar',
+    templateUrl: './pagar.component.html',
+    styleUrls: ['./pagar.component.css'],
+    standalone: false
 })
 export class PagarComponent implements OnInit {
   public PaymentRegisterForm: FormGroup;
@@ -78,7 +79,7 @@ export class PagarComponent implements OnInit {
     public userService: UserService,
     public paymentMethodService: PaymentMethodService,
     public tasaBcvService: TasabcvService,
-    // public toastr: ToastrService,
+    public toastr: ToastrService,
   ) {
     this.usuario = this.authService.user;
   }
@@ -231,12 +232,12 @@ export class PagarComponent implements OnInit {
     formData.append('status', 'PENDING');
     this.paymentService.create(formData).subscribe({
       next: () => {
-        // this.toastr.success('¡Pago reportado con éxito!');
+        this.toastr.success('¡Pago reportado con éxito!');
         this.router.navigate(['/app/mis-pagos']);
       },
       error: () => {
         this.cargando = false;
-        // this.toastr.error('Error al registrar el pago');
+        this.toastr.error('Error al registrar el pago');
       }
     });
     return false;
