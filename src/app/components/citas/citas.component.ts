@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from 'express-serve-static-core';
-import { of, delay } from 'rxjs';
-import { Patient } from 'src/app/models/presupuesto';
-import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
+import { Patient } from '../../models/presupuesto';
+import { User } from '../../models/user';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
     selector: 'app-citas',

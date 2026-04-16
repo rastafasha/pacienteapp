@@ -22,5 +22,6 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
         RouterModule,
         FormsModule,
         ReactiveFormsModule,
-        SharedModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        SharedModule
+    ], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AuthModule { }
